@@ -20,4 +20,22 @@ SHEET = GSPREAD_CLIENT.open('hangman')
 
 wordlist = SHEET.worksheet('words')
 words = wordlist.get_all_values()
-print(words)
+
+def intro():
+    """
+    Gameintro showing the user the rules
+    asking for the username the user want to use
+    asking the user if they want to play by entering "Y" or "N" and then click enter
+    """
+    print("Welcome to a game of Hangman!")
+    print()
+    print("The rules are simple:")
+    print("1. You are presented with a number of underscores, that is the length of the word.")
+    print("2. Guess 1 letter at a time by entering the letter and then click 'Enter'.")
+    print("3. If the letter is correct, it replaces the corresponding underscore(s).")
+    print("4. If the letter is incorrect, you lose 1 of your 6 guesses. \nLoose all 6 guesses and you have lost the game.")
+    print("5. If you guessed all letters in the word, you win!")
+    print()
+    print("Let's play!")
+
+intro()
