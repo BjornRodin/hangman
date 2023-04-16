@@ -60,7 +60,7 @@ def random_word():
     word_list = random.choice(words)
     return word_list[0].strip()
 
-def playgame():
+def main_functions():
     """
     Running all main functions for the game
     """
@@ -68,4 +68,4 @@ def playgame():
     input("press Enter to start the game...")
     word = random_word()
     print(word)
-playgame()
+main_functions()
