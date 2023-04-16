@@ -38,8 +38,19 @@ def intro():
     print()
     print("Let's play!")
 
-    
+    username = ""
+    while True:
+        username = input("Enter your Username: \n")
+        
+        if not username.isalpha():
+            print("Your Username has to be letters only.")
+        else:
+            print(f"Hello {username}, when you are ready to play, Press Enter.")
+        return username    
 
 def playgame():
-    intro()
+    """
+    Running all main functions for the game
+    """
+    username = intro()
 playgame()
