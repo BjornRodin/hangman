@@ -18,4 +18,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman')
 
-words = SHEET.worksheet('words')
+wordlist = SHEET.worksheet('words')
+words = wordlist.get_all_values()
+print(words)
