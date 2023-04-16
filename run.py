@@ -38,4 +38,8 @@ def intro():
     print()
     print("Let's play!")
 
-intro()
+    
+
+def playgame():
+    intro()
+playgame()
