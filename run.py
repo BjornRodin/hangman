@@ -54,10 +54,11 @@ def intro():
 def random_word():
     """
     Making the game find a word randomly from the 'words' variable I previously
-    got from the spreadsheet
+    got from the spreadsheet.
+    Because the word is still in a list we have to remove [] and '' with the strip function
     """
-    return random.choice(words)
-    
+    word_list = random.choice(words)
+    return word_list[0].strip()
 
 def playgame():
     """
