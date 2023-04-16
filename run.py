@@ -44,9 +44,11 @@ def intro():
         
         if not username.isalpha():
             print("Your Username has to be letters only.")
+            continue
         else:
             print(f"Hello {username}, when you are ready to play, Press Enter.")
         return username    
+
 
 def playgame():
     """
