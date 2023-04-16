@@ -1,6 +1,8 @@
 """
 Imported dependencies such as gspread to be able to access the spreadsheet
+Import random to be able to use the mathematical function of random
 """
+import random
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -46,13 +48,23 @@ def intro():
             print("Your Username has to be letters only.")
             continue
         else:
-            print(f"Hello {username}, when you are ready to play, Press Enter.")
+            print(f"Hello {username}, when you are ready to play,")
         return username    
 
+def random_word():
+    """
+    Making the game find a word randomly from the 'words' variable I previously
+    got from the spreadsheet
+    """
+    return random.choice(words)
+    
 
 def playgame():
     """
     Running all main functions for the game
     """
     username = intro()
+    input("press Enter to start the game...")
+    word = random_word()
+    print(word)
 playgame()
