@@ -68,7 +68,62 @@ def graphic_start():
            "   |     |  \n"
            "   |        \n"
            "   |        \n"
+           "   |        \n"
            "  /|\\      \n"
+           " / | \\     \n")
+
+def graphic_5_remaning():
+    return("   |-----|  \n"
+           "   |     |  \n"
+           "   |     0  \n"
+           "   |        \n"
+           "   |        \n"
+           "  /|\\      \n"
+           " / | \\     \n")
+
+def graphic_4_remaning():
+    return("   |-----|  \n"
+           "   |     |  \n"
+           "   |     0  \n"
+           "   |     |  \n"
+           "   |     |  \n"
+           "  /|\\      \n"
+           " / | \\     \n")
+
+def graphic_3_remaning():
+    return("   |-----|  \n"
+           "   |     |  \n"
+           "   |     0  \n"
+           "   |    \|  \n"
+           "   |     |  \n"
+           "  /|\\      \n"
+           " / | \\     \n")
+
+def graphic_2_remaning():
+    return("   |-----|  \n"
+           "   |     |  \n"
+           "   |     0  \n"
+           "   |    \|/ \n"
+           "   |     |  \n"
+           "  /|\\      \n"
+           " / | \\     \n")
+
+def graphic_1_remaning():
+    return("   |-----|  \n"
+           "   |     |  \n"
+           "   |     0  \n"
+           "   |    \|/ \n"
+           "   |     |  \n"
+           "  /|\\  /   \n"
+           " / | \\     \n")
+
+def graphic_0_remaning():
+    return("   |-----|  \n"
+           "   |     |  \n"
+           "   |     0  \n"
+           "   |    \|/ \n"
+           "   |     |  \n"
+           "  /|\\  / \ \n"
            " / | \\     \n")
 
 def playgame():
@@ -87,7 +142,8 @@ def playgame():
     guesses_remaining = 6
     letters_guessed = []
     game_over = False
-    # Looping through the game, checking if letter etc
+
+    # Looping through the game, checking if letter exist in the word
     while game_over is False and guesses_remaining > 0:
         print(f"The word has {word_length} letters in it. Good luck!")
         print(f"You have {guesses_remaining} guesses remaining.")
