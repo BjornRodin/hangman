@@ -3,6 +3,7 @@ Imported dependencies such as gspread to be able to access the spreadsheet
 Import random to be able to use the mathematical function of random
 """
 import random
+import string
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -60,12 +61,20 @@ def random_word():
     word_list = random.choice(words)
     return word_list[0].strip()
 
+def playgame():
+    """
+    Getting the random word and making them uppercase, then replacing with underscores
+    with a space between each letter
+    """
+    word = random_word().upper()
+    print(word)
+    print(' '.join(['_' for letter in word]))
+
 def main_functions():
     """
     Running all main functions for the game
     """
     username = intro()
     input("press Enter to start the game...")
-    word = random_word()
-    print(word)
+    playgame()
 main_functions()
