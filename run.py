@@ -68,7 +68,8 @@ def playgame():
     """
     word = random_word().upper()
     print(word)
-    print(' '.join(['_' for letter in word]))
+    word_hidden = (' '.join(['_' for letter in word]))
+    print(word_hidden)
 
 def main_functions():
     """
