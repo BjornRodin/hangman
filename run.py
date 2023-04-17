@@ -142,10 +142,10 @@ def playgame():
     game_over = False
     print(graphic_start())
     print(f"The word has {word_length} letters in it. Good luck!\n")
+    print(word_hidden)
 
     # Looping through the game, checking if letter exist in the word
-    while game_over is False and guesses_remaining > 0:
-        print(word_hidden)
+    while guesses_remaining > 0:
         print(f"You have {guesses_remaining} guesses remaining.")
         print()
         guess = input("Guess a letter: \n").upper()
@@ -162,10 +162,14 @@ def playgame():
             elif guess in word:
                 print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
                 letters_guessed.append(guess)
+                for i in range(word_length):
+                    if word[i] == guess:
+                        word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
+                print(word_hidden)
             else:
                 print("Error: Something went wrong, try again.\n")
         else:
-            print(f"Error: Your guess is either not in the alphabet, or is not 1 character long.\n"
+            print(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
             f"Your guess was '{guess.upper()}', try again.\n")
     else:
         print("ValueError: Please try again, make sure it is a letter.")

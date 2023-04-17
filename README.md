@@ -31,4 +31,5 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 Happy coding!
 
 Bug:
-Encountered bug, choosing empty cells as well in the spreadsheet. Solved it with a for loop.
+1. Encountered bug, choosing empty cells as well in the spreadsheet. Solved it with a for loop.
+2. Had issues with replacing the underscores with the letter when guessed correctly. Found a way of doing it first but it didn't remove the underscore. After some more research https://favtutor.com/blogs/replace-character-string-python helped me find the issue. I had to use a version of str = str[:index] + new_character + str[index+1:] to replace it correctly as i wanted. Now it works well.
