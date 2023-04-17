@@ -29,3 +29,6 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 -----
 Happy coding!
+
+Bug:
+Encountered bug, choosing empty cells as well in the spreadsheet. Solved it with a for loop.

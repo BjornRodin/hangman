@@ -58,18 +58,37 @@ def random_word():
     got from the spreadsheet.
     Because the word is still in a list we have to remove [] and '' with the strip function
     """
-    word_list = random.choice(words)
+    non_empty_cells = [word for word in words if word[0].strip()]
+    word_list = random.choice(non_empty_cells)
     return word_list[0].strip()
+
+def graphic_start():
+    return("   |-----|  \n"
+           "   |     |  \n"
+           "   |        \n"
+           "   |        \n"
+           "  /|\\      \n"
+           " / | \\     \n")
 
 def playgame():
     """
     Getting the random word and making them uppercase, then replacing with underscores
-    with a space between each letter
+    with a space between each letter.
+    Graphic of the gallows.
+    Starting variables specified for start of each game, to store guessed letters
+    for example
     """
     word = random_word().upper()
     print(word)
+    print(graphic_start())
     word_hidden = (' '.join(['_' for letter in word]))
     print(word_hidden)
+
+    guesses_remaining = 6
+    guesses_made = 0
+    letters_guessed = []
+    game_over = False
+
 
 def main_functions():
     """
