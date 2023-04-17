@@ -111,6 +111,8 @@ def playgame():
         else:
             print(f"Error: Your guess is either not in the alphabet, or is not 1 character long.\n"
             f"Your guess was '{guess.upper()}', try again.\n")
+    else:
+        print("ValueError: Please try again, make sure it is a letter.")
 
 def main_functions():
     """
