@@ -92,7 +92,7 @@ def playgame():
         print(f"The word has {word_length} letters in it. Good luck!")
         print(f"You have {guesses_remaining} guesses remaining.")
         print()
-        guess = input("Guess a letter: \n")
+        guess = input("Guess a letter: \n").upper()
         
         if guess.isalpha() and len(guess) == 1:
             if guess in letters_guessed:
@@ -111,12 +111,6 @@ def playgame():
         else:
             print(f"Error: Your guess is either not in the alphabet, or is not 1 character long.\n"
             f"Your guess was '{guess.upper()}', try again.\n")
-
-
-
-        
-
-
 
 def main_functions():
     """
