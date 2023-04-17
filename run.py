@@ -98,17 +98,17 @@ def playgame():
         if guess.isalpha() and len(guess) == 1:
             if guess in letters_guessed:
                 print(f"The letter {guess.upper()} has already been guessed.")
-                print("Try again!")
+                print("Try again!\n")
             elif guess not in word:
                 print(f"Wrong! The letter {guess.upper()} is not in the word.")
-                print("Try again!")
+                print("Try again!\n")
             elif guess in word:
-                print(f"Good choice! The letter {guess.upper()} is in the word.")
+                print(f"Good choice! The letter {guess.upper()} is in the word.\n")
             else:
-                print("Error: Something went wrong, try again.")
+                print("Error: Something went wrong, try again.\n")
         else:
             print(f"Error: Your guess is either not in the alphabet, or is not 1 character long.\n"
-            f"Your guess was '{guess.upper()}', try again.")
+            f"Your guess was '{guess.upper()}', try again.\n")
 
 
 
