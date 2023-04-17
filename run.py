@@ -73,8 +73,7 @@ def graphic_start():
 
 def playgame():
     """
-    Getting the random word and making them uppercase, then calculating number of letters,
-    then replacing with underscores and a space between each underscore.
+    Getting the random word then replacing it with underscores.
     Graphic of the gallows.
     Starting variables specified for start of each game, to store guessed letters
     for example
@@ -89,13 +88,32 @@ def playgame():
     guesses_made = 0
     letters_guessed = []
     game_over = False
-
+    # Looping through the game, checking if letter etc
     while game_over is False and guesses_remaining > 0:
         print(f"The word has {word_length} letters in it. Good luck!")
         print(f"You have {guesses_remaining} guesses remaining.")
         print()
         guess = input("Guess a letter: \n")
-        guesses_remaining = 0
+        
+        if guess.isalpha() and len(guess) == 1:
+            if guess in letters_guessed:
+                print(f"The letter {guess.upper()} has already been guessed.")
+                print("Try again!")
+            elif guess not in word:
+                print(f"Wrong! The letter {guess.upper()} is not in the word.")
+                print("Try again!")
+            elif guess in word:
+                print(f"Good choice! The letter {guess.upper()} is in the word.")
+            else:
+                print("Error: Something went wrong, try again.")
+        else:
+            print(f"Error: Your guess is either not in the alphabet, or is not 1 character long.\n"
+            f"Your guess was '{guess.upper()}', try again.")
+
+
+
+        
+
 
 
 def main_functions():
