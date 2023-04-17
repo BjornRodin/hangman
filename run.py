@@ -32,6 +32,7 @@ def intro():
     """
     print("Welcome to a game of Hangman!")
     print()
+    print(graphic_start())
     print("The rules are simple:")
     print("1. You are presented with a number of underscores, that is the length of the word.")
     print("2. Guess 1 letter at a time by entering the letter and then click 'Enter'.")
@@ -72,15 +73,15 @@ def graphic_start():
 
 def playgame():
     """
-    Getting the random word and making them uppercase, then replacing with underscores
-    with a space between each letter.
+    Getting the random word and making them uppercase, then calculating number of letters,
+    then replacing with underscores and a space between each underscore.
     Graphic of the gallows.
     Starting variables specified for start of each game, to store guessed letters
     for example
     """
     word = random_word().upper()
+    word_length = len(word)
     print(word)
-    print(graphic_start())
     word_hidden = (' '.join(['_' for letter in word]))
     print(word_hidden)
 
@@ -88,6 +89,13 @@ def playgame():
     guesses_made = 0
     letters_guessed = []
     game_over = False
+
+    while game_over is False and guesses_remaining > 0:
+        print(f"The word has {word_length} letters in it. Good luck!")
+        print(f"You have {guesses_remaining} guesses remaining.")
+        print()
+        guess = input("Guess a letter: \n")
+        guesses_remaining = 0
 
 
 def main_functions():
