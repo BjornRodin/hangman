@@ -137,15 +137,15 @@ def playgame():
     word_length = len(word)
     print(word)
     word_hidden = (' '.join(['_' for letter in word]))
-    print(word_hidden)
-
     guesses_remaining = 6
     letters_guessed = []
     game_over = False
+    print(graphic_start())
+    print(f"The word has {word_length} letters in it. Good luck!\n")
 
     # Looping through the game, checking if letter exist in the word
     while game_over is False and guesses_remaining > 0:
-        print(f"The word has {word_length} letters in it. Good luck!")
+        print(word_hidden)
         print(f"You have {guesses_remaining} guesses remaining.")
         print()
         guess = input("Guess a letter: \n").upper()
