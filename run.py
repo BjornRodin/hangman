@@ -85,7 +85,6 @@ def playgame():
     print(word_hidden)
 
     guesses_remaining = 6
-    guesses_made = 0
     letters_guessed = []
     game_over = False
     # Looping through the game, checking if letter etc
@@ -97,13 +96,16 @@ def playgame():
         
         if guess.isalpha() and len(guess) == 1:
             if guess in letters_guessed:
-                print(f"The letter {guess.upper()} has already been guessed.")
-                print("Try again!\n")
+                print(f"The letter '{guess.upper()}' has already been guessed.")
+                print("Try another letter!\n")
             elif guess not in word:
-                print(f"Wrong! The letter {guess.upper()} is not in the word.")
+                print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
                 print("Try again!\n")
+                letters_guessed.append(guess)
+                guesses_remaining -= 1
             elif guess in word:
-                print(f"Good choice! The letter {guess.upper()} is in the word.\n")
+                print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
+                letters_guessed.append(guess)
             else:
                 print("Error: Something went wrong, try again.\n")
         else:
