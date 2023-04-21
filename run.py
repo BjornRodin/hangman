@@ -165,14 +165,18 @@ def playgame():
                 for i in range(word_length):
                     if word[i] == guess:
                         word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
-                print(word_hidden)
+                if "_" not in word_hidden:
+                    print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
+                    break
+                else:
+                    print(word_hidden)
             else:
                 print("Error: Something went wrong, try again.\n")
         else:
             print(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
             f"Your guess was '{guess.upper()}', try again.\n")
     else:
-        print("ValueError: Please try again, make sure it is a letter.")
+        print("TypeError: Please try again and make sure it is a letter.")
 
 def main_functions():
     """
