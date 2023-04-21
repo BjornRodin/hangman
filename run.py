@@ -144,12 +144,13 @@ def playgame():
     Starting variables specified for start of each game, to store guessed letters
     for example
     """
-    word = random_word().upper()
-    word_length = len(word)
+    #word = random_word().upper()
+    #word_length = len(word)
     print(word)
-    word_hidden = (' '.join(['_' for letter in word]))
-    guesses_remaining = 6
-    letters_guessed = []
+    #word_hidden = (' '.join(['_' for letter in word]))
+    #guesses_remaining = 6
+    #letters_guessed = []
+    word, word_length, word_hidden, guesses_remaining, letters_guessed = initialize()
     game_over = False
     print(graphic_start())
     print(f"The word has {word_length} letters in it. Good luck!\n")
