@@ -137,6 +137,14 @@ def initialize():
     letters_guessed = []
     return word, word_length, word_hidden, guesses_remaining, letters_guessed
 
+def get_user_input():
+    guess = input("Guess a letter: \n").upper()
+    if guess.isalpha() and len(guess) == 1:
+        return guess
+    else:
+        raise ValueError(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
+            f"Your guess was '{guess.upper()}', try again.\n")
+
 def playgame():
     """
     Getting the random word then replacing it with underscores.
@@ -160,7 +168,7 @@ def playgame():
     while guesses_remaining > 0:
         print(f"You have {guesses_remaining} guesses remaining.")
         print()
-        guess = input("Guess a letter: \n").upper()
+        #guess = input("Guess a letter: \n").upper()
         
         if guess.isalpha() and len(guess) == 1:
             if guess in letters_guessed:
@@ -185,8 +193,8 @@ def playgame():
             else:
                 print("Error: Something went wrong, try again.\n")
         else:
-            print(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
-            f"Your guess was '{guess.upper()}', try again.\n")
+            #print(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
+            #f"Your guess was '{guess.upper()}', try again.\n")
     else:
         print("TypeError: Please try again and make sure it is a letter.")
 
