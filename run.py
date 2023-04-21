@@ -126,6 +126,17 @@ def graphic_0_remaning():
            "  /|\\  / \ \n"
            " / | \\     \n")
 
+def initialize():
+    """
+    Setting up game variables
+    """
+    word = random_word().upper()
+    word_length = len(word)
+    word_hidden = (' '.join(['_' for letter in word]))
+    guesses_remaining = 6
+    letters_guessed = []
+    
+
 def playgame():
     """
     Getting the random word then replacing it with underscores.
