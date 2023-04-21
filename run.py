@@ -135,6 +135,7 @@ def initialize():
     word_hidden = (' '.join(['_' for letter in word]))
     guesses_remaining = 6
     letters_guessed = []
+    print(word)
     return word, word_length, word_hidden, guesses_remaining, letters_guessed
 
 def get_user_input():
@@ -145,16 +146,17 @@ def get_user_input():
         raise ValueError(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
             f"Your guess was '{guess.upper()}', try again.\n")
 
-def update_hidden_word(word, word_hidden, guess):
+def update_hidden_word(word, word_hidden, guess, word_length):
     if guess in word:
-        for i in range(len(word)):
+        print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
+        for i in range(word_length):
             if word[i] == guess:
                 word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
         if "_" not in word_hidden:
             print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
             return True
         else:
-            print(word_hidden)
+            return False
     else:
         print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
         return False
@@ -168,49 +170,43 @@ def playgame():
     """
     #word = random_word().upper()
     #word_length = len(word)
-    print(word)
+    # Print for having the word visible during testing
+    #print(word)
     #word_hidden = (' '.join(['_' for letter in word]))
     #guesses_remaining = 6
     #letters_guessed = []
     word, word_length, word_hidden, guesses_remaining, letters_guessed = initialize()
-    game_over = False
-    print(graphic_start())
+    #print(graphic_start())
     print(f"The word has {word_length} letters in it. Good luck!\n")
     print(word_hidden)
 
-    # Looping through the game, checking if letter exist in the word
+    # Looping through the game, calling functions when needed.
     while guesses_remaining > 0:
         print(f"You have {guesses_remaining} guesses remaining.")
         print()
         #guess = input("Guess a letter: \n").upper()
-        
-        if guess.isalpha() and len(guess) == 1:
+        try:
+            guess = get_user_input()
             if guess in letters_guessed:
                 print(f"The letter '{guess.upper()}' has already been guessed.")
                 print("Try another letter!\n")
-            elif guess not in word:
-                print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
-                print("Try again!\n")
+            else:
                 letters_guessed.append(guess)
-                guesses_remaining -= 1
-            elif guess in word:
-                print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
-                letters_guessed.append(guess)
-                for i in range(word_length):
-                    if word[i] == guess:
-                        word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
-                if "_" not in word_hidden:
-                    print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
+                if update_hidden_word(word, word_hidden, guess, word_length):
+                    print(word_hidden)
                     break
+                elif guess not in word:
+                    guesses_remaining -= 1
+                    if guesses_remaining == 0:
+                        print(f"GAME OVER! The word was '{word}'.")
+                        break
+                    else:
+                        print("Try again!\n")
+                        print(word_hidden)
                 else:
                     print(word_hidden)
-            else:
-                print("Error: Something went wrong, try again.\n")
-        else:
-            #print(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
-            #f"Your guess was '{guess.upper()}', try again.\n")
-    else:
-        print("TypeError: Please try again and make sure it is a letter.")
+        except ValueError as ve:
+            print(ve)
 
 def main_functions():
     """
