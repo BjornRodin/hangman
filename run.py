@@ -150,15 +150,11 @@ def get_user_input():
 def update_hidden_word(word, word_hidden, guess, word_length):
     if guess in word:
         print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
+        print(word_hidden)
         for i in range(word_length):
             if word[i] == guess:
                 word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
         print(word_hidden)
-        if word_hidden == word:
-            print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
-            return True
-        else:
-            return False
     else:
         print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
         return False
@@ -185,6 +181,7 @@ def playgame():
             else:
                 letters_guessed.append(guess)
                 if update_hidden_word(word, word_hidden, guess, word_length):
+                    print(word_hidden)
                     game_over = True
                     break
                 elif guess not in word:
