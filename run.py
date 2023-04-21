@@ -128,14 +128,14 @@ def graphic_0_remaning():
 
 def initialize():
     """
-    Setting up game variables
+    Setting up game variables and returning as a tuple to be used later.
     """
     word = random_word().upper()
     word_length = len(word)
     word_hidden = (' '.join(['_' for letter in word]))
     guesses_remaining = 6
     letters_guessed = []
-    
+    return word, word_length, word_hidden, guesses_remaining, letters_guessed
 
 def playgame():
     """
