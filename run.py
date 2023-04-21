@@ -145,6 +145,20 @@ def get_user_input():
         raise ValueError(f"ValueError: Your guess is either not in the alphabet, or is not 1 character long.\n"
             f"Your guess was '{guess.upper()}', try again.\n")
 
+def update_hidden_word(word, word_hidden, guess):
+    if guess in word:
+        for i in range(len(word)):
+            if word[i] == guess:
+                word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
+        if "_" not in word_hidden:
+            print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
+            return True
+        else:
+            print(word_hidden)
+    else:
+        print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
+        return False
+
 def playgame():
     """
     Getting the random word then replacing it with underscores.
