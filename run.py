@@ -235,9 +235,13 @@ def playgame():
 
 def main_functions():
     """
-    Running all main functions for the game
+    Running all main functions for the game.
+    Make the user able to keep playing if they want to.
     """
     username = intro()
-    input("press Enter to start the game...")
-    playgame()
+    play_again = True
+    while play_again:
+        input("press Enter to start the game...")
+        playgame()
+        play_again = input("\nWould you like to play again? (y/n)\n").lower() == "y"
 main_functions()
