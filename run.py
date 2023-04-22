@@ -233,6 +233,7 @@ def guess_not_word(guesses_remaining, guess, word):
     if guesses_remaining == 0:
         print(graphic(guesses_remaining))
         print(f"GAME OVER!\nThe word was '{word}'.")
+        print(f"\nYour current total score is: {total_score}")
         return True
     else:
         print(f"\nWrong! The letter '{guess.upper()}' is not in the word!\n")
