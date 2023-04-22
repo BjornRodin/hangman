@@ -139,7 +139,8 @@ def initialize():
     print(word)
     return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over
 
-def get_user_input():
+def get_user_input(letters_guessed):
+    print(f"Letters guessed: {', '.join(letters_guessed)}")
     guess = input("Guess a letter: \n").upper()
     if guess.isalpha() and len(guess) == 1:
         return guess
@@ -148,23 +149,18 @@ def get_user_input():
             f"Your guess was '{guess.upper()}', try again.\n")
 
 def update_hidden_word(word, word_hidden, guess, word_length):
-    #if guess in word:
     print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
     for i in range(word_length):
         if word[i] == guess:
             word_hidden[i] = guess
     print(' '.join(word_hidden))
-    #else:
-        #print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
-        #return False
 
-def guess_not_word(guesses_remaining, guess):
-    guesses_remaining -= 1
+def guess_not_word(guesses_remaining, guess, word):
     if guesses_remaining == 0:
         print(f"GAME OVER! The word was '{word}'.")
         return True
     else:
-        print(f"The letter '{guess}' was not in the word, guess again!\n")
+        print(f"Wrong! The letter '{guess.upper()}' is not in the word, guess again!\n")
 
 def game_won(word_hidden, word):
     if ''.join(word_hidden) == word:
@@ -188,17 +184,21 @@ def playgame():
         print(f"You have {guesses_remaining} guesses remaining.")
         print()
         try:
-            guess = get_user_input()
+            #print(letters_guessed)
+            guess = get_user_input(letters_guessed)
             if guess in letters_guessed:
                 print(f"The letter '{guess.upper()}' has already been guessed.")
                 print("Try another letter!\n")
             elif guess in word:
+                letters_guessed.append(guess)
                 update_hidden_word(word, word_hidden, guess, word_length)
                 game_over = game_won(word_hidden, word)
                 if game_over:
                     break
             elif guess not in word:
-                guess_not_word(guesses_remaining, guess)
+                guesses_remaining -= 1
+                letters_guessed.append(guess)
+                guess_not_word(guesses_remaining, guess, word)
             """
             else:
                 letters_guessed.append(guess)
