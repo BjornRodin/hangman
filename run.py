@@ -84,7 +84,39 @@ def graphic(guesses_remaining):
     """
     Graphics used throughout the game depending on how many guesses is remaining.
     """
-    if guesses_remaining > 5:
+    if guesses_remaining > 9:
+        return("            \n"
+               "            \n"
+               "            \n"
+               "            \n"
+               "   |        \n"
+               "   |        \n"
+               "   |        \n")
+    elif guesses_remaining > 8:
+        return("            \n"
+               "            \n"
+               "            \n"
+               "            \n"
+               "   |        \n"
+               "  /|\       \n"
+               " / | \      \n")
+    elif guesses_remaining > 7:
+        return("   |        \n"
+               "   |        \n"
+               "   |        \n"
+               "   |        \n"
+               "   |        \n"
+               "  /|\       \n"
+               " / | \      \n")
+    elif guesses_remaining > 6:
+        return("   |-----   \n"
+               "   |        \n"
+               "   |        \n"
+               "   |        \n"
+               "   |        \n"
+               "  /|\       \n"
+               " / | \      \n")
+    elif guesses_remaining > 5:
         return("   |-----|  \n"
                "   |     |  \n"
                "   |        \n"
@@ -148,11 +180,22 @@ def initialize():
     word = random_word().upper()
     word_length = len(word)
     word_hidden = ['_' for _ in range(word_length)]
-    guesses_remaining = 6
+    guesses_remaining = calculate_guesses(word_length)
     letters_guessed = []
     game_over = False
     print(word)
     return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over
+
+def calculate_guesses(word_length):
+    if word_length <= 3:
+        guesses_remaining = 10 
+    elif word_length <= 6:
+        guesses_remaining = 8
+    elif word_length <= 9:
+        guesses_remaining = 6
+    else:
+        guesses_remaining = 4
+    return guesses_remaining
 
 def get_user_input(letters_guessed, guesses_remaining, word_hidden):
     """
