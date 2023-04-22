@@ -132,7 +132,8 @@ def initialize():
     """
     word = random_word().upper()
     word_length = len(word)
-    word_hidden = (' '.join(['_' for letter in word]))
+    word_hidden = ['_' for _ in range(word_length)]
+    #word_hidden = (' '.join(['_' for letter in word]))
     guesses_remaining = 6
     letters_guessed = []
     game_over = False
@@ -150,11 +151,14 @@ def get_user_input():
 def update_hidden_word(word, word_hidden, guess, word_length):
     if guess in word:
         print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
-        print(word_hidden)
+        #print(word_hidden)
         for i in range(word_length):
             if word[i] == guess:
-                word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
+                word_hidden[i] = guess
+                #word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
         print(word_hidden)
+        #if '_' not in word_hidden:
+            #return True
     else:
         print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
         return False
@@ -180,10 +184,11 @@ def playgame():
                 print("Try another letter!\n")
             else:
                 letters_guessed.append(guess)
-                if update_hidden_word(word, word_hidden, guess, word_length):
-                    print(word_hidden)
-                    game_over = True
-                    break
+                if guess in word:
+                    update_hidden_word(word, word_hidden, guess, word_length)
+                    #print(word_hidden)
+                    #game_over = True
+                    #break
                 elif guess not in word:
                     guesses_remaining -= 1
                     if guesses_remaining == 0:
