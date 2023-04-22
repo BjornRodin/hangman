@@ -199,8 +199,8 @@ def game_won(word_hidden, word, word_length):
     """
     if ''.join(word_hidden) == word:
         print(f"CONGRATULATIONS!\nYou have guessed the word '{word}' and win the game!")
-        score = add_score(word_length)
-        print(score)
+        #score = add_score(word_length)
+        #print(score)
         return True
     else:
         return False
@@ -241,7 +241,7 @@ def playgame():
                 game_over = game_won(word_hidden, word, word_length)
                 if game_over:
                     add_score(word_length)
-                    print(f"Your current total score is: {total_score}")
+                    print(f"\nYour current total score is: {total_score}")
                     break
             elif guess not in word:
                 guesses_remaining -= 1
