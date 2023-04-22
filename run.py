@@ -26,9 +26,8 @@ words = wordlist.get_all_values()
 
 def intro():
     """
-    Gameintro showing the user the rules
-    asking for the username the user want to use
-    asking the user if they want to play by entering "Y" or "N" and then click enter
+    Gameintro showing rules to the user.
+    asking for the username the user want to use, we check so it is a valid input.
     """
     print("Welcome to a game of Hangman!")
     print()
@@ -64,6 +63,9 @@ def random_word():
     return word_list[0].strip()
 
 def graphic_start():
+    """
+    Graphics for intro to present to the user and make them recognize the game quicker.
+    """
     return("   |-----|  \n"
            "   |     |  \n"
            "   |        \n"
@@ -73,6 +75,9 @@ def graphic_start():
            " / | \      \n")
 
 def graphic(guesses_remaining):
+    """
+    Graphics used throughout the game depending on how many guesses is remaining.
+    """
     if guesses_remaining > 5:
         return("   |-----|  \n"
                "   |     |  \n"
@@ -144,6 +149,13 @@ def initialize():
     return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over
 
 def get_user_input(letters_guessed, guesses_remaining, word_hidden):
+    """
+    Print graphics corresponding to how many guesses is left.
+    Print the current state of the hidden word.
+    Print all previous guessed letters.
+    Print remaining guesses.
+    Asking user for their input/guess. It then checks so the input is valid for the game.
+    """
     print(graphic(guesses_remaining))
     print(' '.join(word_hidden))
     print(f"Letters guessed: {', '.join(letters_guessed)}")
@@ -156,12 +168,19 @@ def get_user_input(letters_guessed, guesses_remaining, word_hidden):
             f"Your guess was '{guess.upper()}', try again.\n")
 
 def update_hidden_word(word, word_hidden, guess, word_length):
+    """
+    When correct letter is chosen it is replacing the '_' within the hidden word.
+    """
     print(f"\nGood choice! The letter '{guess.upper()}' is in the word.\n")
     for i in range(word_length):
         if word[i] == guess:
             word_hidden[i] = guess
 
 def guess_not_word(guesses_remaining, guess, word):
+    """
+    Check if there is any guesses remaining, if not, game is over.
+    Else user is presented with the guess saying it's wrong.
+    """
     if guesses_remaining == 0:
         print(graphic(guesses_remaining))
         print(f"GAME OVER!\nThe word was '{word}'.")
@@ -170,6 +189,10 @@ def guess_not_word(guesses_remaining, guess, word):
         print(f"\nWrong! The letter '{guess.upper()}' is not in the word!\n")
 
 def game_won(word_hidden, word):
+    """
+    Check if the hidden word is equal to word.
+    Ending game if it is.
+    """
     if ''.join(word_hidden) == word:
         print(f"CONGRATULATIONS!\nYou have guessed the word '{word}' and win the game!")
         return True
@@ -178,10 +201,12 @@ def game_won(word_hidden, word):
 
 def playgame():
     """
-    Getting the random word then replacing it with underscores.
-    Graphic of the gallows.
-    Starting variables specified for start of each game, to store guessed letters
-    for example
+    Getting the variables from initialize function.
+    Printing the length of the word to the user.
+    While loop going through the game as long as there is guesses remaining and game not over.
+    Assigning value 'guess' for every input the user provides.
+    Value 'guess' is then compared to variables 'letters_guessed' and 'word' and the
+    game continue by calling previous functions depending on which stage it is.
     """
     word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over = initialize()
     print(f"\nThe word has {word_length} letters in it. Good luck!\n")
@@ -189,7 +214,6 @@ def playgame():
     # Looping through the game, calling functions when needed.
     while guesses_remaining > 0 and not game_over:
         try:
-            
             guess = get_user_input(letters_guessed, guesses_remaining, word_hidden)
             if guess in letters_guessed:
                 print(f"\nThe letter '{guess.upper()}' has already been guessed.\nTry another letter!\n")
