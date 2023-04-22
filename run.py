@@ -37,14 +37,16 @@ def intro():
     print("1. You are presented with a number of underscores, that is the length of the word.")
     print("2. Guess 1 letter at a time by entering the letter and then click 'Enter'.")
     print("3. If the letter is correct, it replaces the corresponding underscore(s).")
-    print("4. If the letter is incorrect, you lose 1 of your 6 guesses. \nLoose all 6 guesses and you have lost the game.")
+    print("4. If the letter is incorrect, you lose 1 of your guesses.")
+    print("   4a. The number of guesses depends on the length of the word.")
+    print("   4b. Loose all guesses and you have lost the game.")
     print("5. If you guessed all letters in the word, you win!")
     print()
     print("Let's play!")
 
     username = ""
     while True:
-        username = input("Enter your Username: \n")
+        username = input("\nEnter your Username: \n")
         
         if not username.isalpha():
             print("Your Username has to be letters only.")
@@ -53,7 +55,7 @@ def intro():
             print("Your Username has to be at least 3 characters long.")
             continue
         else:
-            print(f"Hello {username}, when you are ready to play,")
+            print(f"\nHello {username}, when you are ready to play,")
         return username    
 
 def random_word():
