@@ -163,6 +163,13 @@ def update_hidden_word(word, word_hidden, guess, word_length):
         print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
         return False
 
+def game_won(word_hidden, word):
+    if ''.join(word_hidden) == word:
+        print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
+        return True
+    else:
+        return False
+
 def playgame():
     """
     Getting the random word then replacing it with underscores.
@@ -186,6 +193,9 @@ def playgame():
                 letters_guessed.append(guess)
                 if guess in word:
                     update_hidden_word(word, word_hidden, guess, word_length)
+                    game_over = game_won(word_hidden, word)
+                    if game_over:
+                        break
                     #print(word_hidden)
                     #game_over = True
                     #break
