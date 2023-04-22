@@ -119,16 +119,16 @@ def graphic(guesses_remaining):
                "   |     0  \n"
                "   |    \|/ \n"
                "   |     |  \n"
-               "  /|\\  /   \n"
-               " / | \\     \n")
+               "  /|\   /   \n"
+               " / | \      \n")
     else:
         return("   |-----|  \n"
                "   |     |  \n"
                "   |     0  \n"
                "   |    \|/ \n"
                "   |     |  \n"
-               "  /|\\  / \ \n"
-               " / | \\     \n")
+               "  /|\   / \ \n"
+               " / | \      \n")
 
 def initialize():
     """
@@ -143,9 +143,11 @@ def initialize():
     print(word)
     return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over
 
-def get_user_input(letters_guessed, guesses_remaining):
+def get_user_input(letters_guessed, guesses_remaining, word_hidden):
     print(graphic(guesses_remaining))
+    print(' '.join(word_hidden))
     print(f"Letters guessed: {', '.join(letters_guessed)}")
+    print(f"You have {guesses_remaining} guesses remaining.")
     guess = input("Guess a letter: \n").upper()
     if guess.isalpha() and len(guess) == 1:
         return guess
@@ -158,18 +160,19 @@ def update_hidden_word(word, word_hidden, guess, word_length):
     for i in range(word_length):
         if word[i] == guess:
             word_hidden[i] = guess
-    print(' '.join(word_hidden))
+    #print(' '.join(word_hidden))
 
 def guess_not_word(guesses_remaining, guess, word):
     if guesses_remaining == 0:
+        print(graphic(guesses_remaining))
         print(f"GAME OVER! The word was '{word}'.")
         return True
     else:
-        print(f"Wrong! The letter '{guess.upper()}' is not in the word, guess again!\n")
+        print(f"\nWrong! The letter '{guess.upper()}' is not in the word!\n")
 
 def game_won(word_hidden, word):
     if ''.join(word_hidden) == word:
-        print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
+        print(f"CONGRATULATIONS!\nYou have guessed the word '{word}' and win the game!")
         return True
     else:
         return False
@@ -182,15 +185,15 @@ def playgame():
     for example
     """
     word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over = initialize()
-    print(f"The word has {word_length} letters in it. Good luck!\n")
+    print(f"\nThe word has {word_length} letters in it. Good luck!\n")
 
     # Looping through the game, calling functions when needed.
     while guesses_remaining > 0 and not game_over:
-        print(f"You have {guesses_remaining} guesses remaining.")
+        #print(f"You have {guesses_remaining} guesses remaining.")
         print()
         try:
             #print(letters_guessed)
-            guess = get_user_input(letters_guessed, guesses_remaining)
+            guess = get_user_input(letters_guessed, guesses_remaining, word_hidden)
             if guess in letters_guessed:
                 print(f"The letter '{guess.upper()}' has already been guessed.")
                 print("Try another letter!\n")
