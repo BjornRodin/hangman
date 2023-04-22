@@ -72,59 +72,63 @@ def graphic_start():
            "  /|\\      \n"
            " / | \\     \n")
 
-def graphic_5_remaning():
-    return("   |-----|  \n"
-           "   |     |  \n"
-           "   |     0  \n"
-           "   |        \n"
-           "   |        \n"
-           "  /|\\      \n"
-           " / | \\     \n")
-
-def graphic_4_remaning():
-    return("   |-----|  \n"
-           "   |     |  \n"
-           "   |     0  \n"
-           "   |     |  \n"
-           "   |     |  \n"
-           "  /|\\      \n"
-           " / | \\     \n")
-
-def graphic_3_remaning():
-    return("   |-----|  \n"
-           "   |     |  \n"
-           "   |     0  \n"
-           "   |    \|  \n"
-           "   |     |  \n"
-           "  /|\\      \n"
-           " / | \\     \n")
-
-def graphic_2_remaning():
-    return("   |-----|  \n"
-           "   |     |  \n"
-           "   |     0  \n"
-           "   |    \|/ \n"
-           "   |     |  \n"
-           "  /|\\      \n"
-           " / | \\     \n")
-
-def graphic_1_remaning():
-    return("   |-----|  \n"
-           "   |     |  \n"
-           "   |     0  \n"
-           "   |    \|/ \n"
-           "   |     |  \n"
-           "  /|\\  /   \n"
-           " / | \\     \n")
-
-def graphic_0_remaning():
-    return("   |-----|  \n"
-           "   |     |  \n"
-           "   |     0  \n"
-           "   |    \|/ \n"
-           "   |     |  \n"
-           "  /|\\  / \ \n"
-           " / | \\     \n")
+def graphic(guesses_remaining):
+    if guesses_remaining > 5:
+        return("   |-----|  \n"
+               "   |     |  \n"
+               "   |        \n"
+               "   |        \n"
+               "   |        \n"
+               "  /|\\      \n"
+               " / | \\     \n")
+    elif guesses_remaining > 4:
+        return("   |-----|  \n"
+               "   |     |  \n"
+               "   |     0  \n"
+               "   |        \n"
+               "   |        \n"
+               "  /|\\      \n"
+               " / | \\     \n")
+    elif guesses_remaining > 3:
+        return("   |-----|  \n"
+               "   |     |  \n"
+               "   |     0  \n"
+               "   |     |  \n"
+               "   |     |  \n"
+               "  /|\\      \n"
+               " / | \\     \n")
+    elif guesses_remaining > 2:
+        return("   |-----|  \n"
+               "   |     |  \n"
+               "   |     0  \n"
+               "   |    \|  \n"
+               "   |     |  \n"
+               "  /|\\      \n"
+               " / | \\     \n")
+    elif guesses_remaining > 1:
+        return("   |-----|  \n"
+               "   |     |  \n"
+               "   |     0  \n"
+               "   |    \|/ \n"
+               "   |     |  \n"
+               "  /|\\      \n"
+               " / | \\     \n")
+    elif guesses_remaining > 0:
+        return("   |-----|  \n"
+               "   |     |  \n"
+               "   |     0  \n"
+               "   |    \|/ \n"
+               "   |     |  \n"
+               "  /|\\  /   \n"
+               " / | \\     \n")
+    else:
+        return("   |-----|  \n"
+               "   |     |  \n"
+               "   |     0  \n"
+               "   |    \|/ \n"
+               "   |     |  \n"
+               "  /|\\  / \ \n"
+               " / | \\     \n")
 
 def initialize():
     """
@@ -139,7 +143,8 @@ def initialize():
     print(word)
     return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over
 
-def get_user_input(letters_guessed):
+def get_user_input(letters_guessed, guesses_remaining):
+    print(graphic(guesses_remaining))
     print(f"Letters guessed: {', '.join(letters_guessed)}")
     guess = input("Guess a letter: \n").upper()
     if guess.isalpha() and len(guess) == 1:
@@ -149,7 +154,7 @@ def get_user_input(letters_guessed):
             f"Your guess was '{guess.upper()}', try again.\n")
 
 def update_hidden_word(word, word_hidden, guess, word_length):
-    print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
+    print(f"\nGood choice! The letter '{guess.upper()}' is in the word.\n")
     for i in range(word_length):
         if word[i] == guess:
             word_hidden[i] = guess
@@ -185,7 +190,7 @@ def playgame():
         print()
         try:
             #print(letters_guessed)
-            guess = get_user_input(letters_guessed)
+            guess = get_user_input(letters_guessed, guesses_remaining)
             if guess in letters_guessed:
                 print(f"The letter '{guess.upper()}' has already been guessed.")
                 print("Try another letter!\n")
