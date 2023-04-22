@@ -48,6 +48,9 @@ def intro():
         if not username.isalpha():
             print("Your Username has to be letters only.")
             continue
+        elif len(username) < 3:
+            print("Your Username has to be at least 3 characters long.")
+            continue
         else:
             print(f"Hello {username}, when you are ready to play,")
         return username    
