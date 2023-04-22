@@ -156,7 +156,7 @@ def update_hidden_word(word, word_hidden, guess, word_length):
             if word[i] == guess:
                 word_hidden[i] = guess
                 #word_hidden = word_hidden[:i*2] + guess + word_hidden[i*2+1:]
-        print(word_hidden)
+        print(' '.join(word_hidden))
         #if '_' not in word_hidden:
             #return True
     else:
