@@ -148,15 +148,23 @@ def get_user_input():
             f"Your guess was '{guess.upper()}', try again.\n")
 
 def update_hidden_word(word, word_hidden, guess, word_length):
-    if guess in word:
-        print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
-        for i in range(word_length):
-            if word[i] == guess:
-                word_hidden[i] = guess
-        print(' '.join(word_hidden))
+    #if guess in word:
+    print(f"Good choice! The letter '{guess.upper()}' is in the word.\n")
+    for i in range(word_length):
+        if word[i] == guess:
+            word_hidden[i] = guess
+    print(' '.join(word_hidden))
+    #else:
+        #print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
+        #return False
+
+def guess_not_word(guesses_remaining, guess):
+    guesses_remaining -= 1
+    if guesses_remaining == 0:
+        print(f"GAME OVER! The word was '{word}'.")
+        return True
     else:
-        print(f"Wrong! The letter '{guess.upper()}' is not in the word.")
-        return False
+        print(f"The letter '{guess}' was not in the word, guess again!\n")
 
 def game_won(word_hidden, word):
     if ''.join(word_hidden) == word:
@@ -184,6 +192,14 @@ def playgame():
             if guess in letters_guessed:
                 print(f"The letter '{guess.upper()}' has already been guessed.")
                 print("Try another letter!\n")
+            elif guess in word:
+                update_hidden_word(word, word_hidden, guess, word_length)
+                game_over = game_won(word_hidden, word)
+                if game_over:
+                    break
+            elif guess not in word:
+                guess_not_word(guesses_remaining, guess)
+            """
             else:
                 letters_guessed.append(guess)
                 if guess in word:
@@ -202,6 +218,7 @@ def playgame():
                     if word_hidden == word:
                         print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
                         game_over = True
+                        """
         except ValueError as ve:
             print(ve)
 
