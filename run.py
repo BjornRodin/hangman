@@ -54,9 +54,21 @@ def intro():
         elif len(username) < 3:
             print("Your Username has to be at least 3 characters long.")
             continue
+        elif username_exists(username):
+            print("That username already exists. Please enter another username.")
+            continue
         else:
             print(f"\nHello {username}, when you are ready to play,")
         return username    
+
+def username_exists(username):
+    """
+    Used to access previous usernames in spreadsheet, checking if users preferred username
+    already exist.
+    """
+    scores = SHEET.worksheet('scores')
+    usernames = scores.col_values(1)
+    return username in usernames
 
 def random_word():
     """
