@@ -48,8 +48,8 @@ def intro():
     while True:
         username = input("\nEnter your Username: \n")
         
-        if not username.isalpha():
-            print("Your Username has to be letters only.")
+        if not username.isalnum():
+            print("Your Username has to be letters or numbers only.")
             continue
         elif len(username) < 3:
             print("Your Username has to be at least 3 characters long.")
