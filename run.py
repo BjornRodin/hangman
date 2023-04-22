@@ -69,8 +69,8 @@ def graphic_start():
            "   |        \n"
            "   |        \n"
            "   |        \n"
-           "  /|\\      \n"
-           " / | \\     \n")
+           "  /|\       \n"
+           " / | \      \n")
 
 def graphic(guesses_remaining):
     if guesses_remaining > 5:
@@ -79,40 +79,40 @@ def graphic(guesses_remaining):
                "   |        \n"
                "   |        \n"
                "   |        \n"
-               "  /|\\      \n"
-               " / | \\     \n")
+               "  /|\       \n"
+               " / | \      \n")
     elif guesses_remaining > 4:
         return("   |-----|  \n"
                "   |     |  \n"
                "   |     0  \n"
                "   |        \n"
                "   |        \n"
-               "  /|\\      \n"
-               " / | \\     \n")
+               "  /|\       \n"
+               " / | \      \n")
     elif guesses_remaining > 3:
         return("   |-----|  \n"
                "   |     |  \n"
                "   |     0  \n"
                "   |     |  \n"
                "   |     |  \n"
-               "  /|\\      \n"
-               " / | \\     \n")
+               "  /|\       \n"
+               " / | \      \n")
     elif guesses_remaining > 2:
         return("   |-----|  \n"
                "   |     |  \n"
                "   |     0  \n"
                "   |    \|  \n"
                "   |     |  \n"
-               "  /|\\      \n"
-               " / | \\     \n")
+               "  /|\       \n"
+               " / | \      \n")
     elif guesses_remaining > 1:
         return("   |-----|  \n"
                "   |     |  \n"
                "   |     0  \n"
                "   |    \|/ \n"
                "   |     |  \n"
-               "  /|\\      \n"
-               " / | \\     \n")
+               "  /|\       \n"
+               " / | \      \n")
     elif guesses_remaining > 0:
         return("   |-----|  \n"
                "   |     |  \n"
@@ -160,12 +160,11 @@ def update_hidden_word(word, word_hidden, guess, word_length):
     for i in range(word_length):
         if word[i] == guess:
             word_hidden[i] = guess
-    #print(' '.join(word_hidden))
 
 def guess_not_word(guesses_remaining, guess, word):
     if guesses_remaining == 0:
         print(graphic(guesses_remaining))
-        print(f"GAME OVER! The word was '{word}'.")
+        print(f"GAME OVER!\nThe word was '{word}'.")
         return True
     else:
         print(f"\nWrong! The letter '{guess.upper()}' is not in the word!\n")
@@ -189,14 +188,11 @@ def playgame():
 
     # Looping through the game, calling functions when needed.
     while guesses_remaining > 0 and not game_over:
-        #print(f"You have {guesses_remaining} guesses remaining.")
-        print()
         try:
-            #print(letters_guessed)
+            
             guess = get_user_input(letters_guessed, guesses_remaining, word_hidden)
             if guess in letters_guessed:
-                print(f"The letter '{guess.upper()}' has already been guessed.")
-                print("Try another letter!\n")
+                print(f"\nThe letter '{guess.upper()}' has already been guessed.\nTry another letter!\n")
             elif guess in word:
                 letters_guessed.append(guess)
                 update_hidden_word(word, word_hidden, guess, word_length)
@@ -207,26 +203,6 @@ def playgame():
                 guesses_remaining -= 1
                 letters_guessed.append(guess)
                 guess_not_word(guesses_remaining, guess, word)
-            """
-            else:
-                letters_guessed.append(guess)
-                if guess in word:
-                    update_hidden_word(word, word_hidden, guess, word_length)
-                    game_over = game_won(word_hidden, word)
-                    if game_over:
-                        break
-                elif guess not in word:
-                    guesses_remaining -= 1
-                    if guesses_remaining == 0:
-                        print(f"GAME OVER! The word was '{word}'.")
-                        break
-                    else:
-                        print("Try again!\n")
-                else:
-                    if word_hidden == word:
-                        print(f"CONGRATULATIONS! You have guessed the word '{word}' and win the game!")
-                        game_over = True
-                        """
         except ValueError as ve:
             print(ve)
 
