@@ -261,8 +261,13 @@ def add_score(word_length):
         total_score += 10
 
 def gameinfo_to_sheet(username, total_score):
+    """
+    Updating spreadsheet with the username the user chose and their final score
+    """
+    print("Updating scoreboard with your username and final score...\n")
     worksheet = SHEET.worksheet('scores')
     worksheet.append_row([username, total_score])
+    print(f"Successfully updated your username '{username}' \nand your total score '{total_score}' to scoreboard!\n")
 
 def playgame():
     """
