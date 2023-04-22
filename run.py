@@ -260,6 +260,10 @@ def add_score(word_length):
     else:
         total_score += 10
 
+def gameinfo_to_sheet(username, total_score):
+    worksheet = SHEET.worksheet('scores')
+    worksheet.append_row([username, total_score])
+
 def playgame():
     """
     Getting the variables from initialize function.
@@ -308,5 +312,6 @@ def main_functions():
         play_again = input("\nWould you like to play again? (y/n)\n").lower() == "y"
         if not play_again:
             print(f"\nThanks for playing!\nYour final score was: {total_score}\n")
+            gameinfo_to_sheet(username, total_score)
             total_score = 0
 main_functions()
