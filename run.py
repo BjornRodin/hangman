@@ -202,6 +202,9 @@ def game_won(word_hidden, word):
     else:
         return False
 
+def score():
+    
+
 def playgame():
     """
     Getting the variables from initialize function.
