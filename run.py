@@ -148,6 +148,7 @@ def initialize():
     guesses_remaining = 6
     letters_guessed = []
     game_over = False
+    score = 0
     print(word)
     return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over
 
@@ -202,8 +203,16 @@ def game_won(word_hidden, word):
     else:
         return False
 
-def score():
-    
+def score(word_length, score):
+    if word_length <= 3:
+        score += 40
+    elif word_length <= 6:
+        score += 30
+    elif word_length <= 9:
+        score += 20
+    else:
+        score += 10
+    return score
 
 def playgame():
     """
