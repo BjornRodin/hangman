@@ -278,8 +278,15 @@ def gameinfo_to_sheet(username, total_score):
     """
     print("Updating scoreboard with your username and final score...\n")
     worksheet = SHEET.worksheet('scores')
-    worksheet.append_row([username, total_score])
-    print(f"Successfully updated your username '{username}' \nand your total score '{total_score}' to scoreboard!\n")
+    # Written with help from https://stackoverflow.com/questions/8966538/syntax-behind-sortedkey-lambda
+    scores = worksheet.get_all_values()[1:]
+    scores.sort(key=lambda row: int(row[1]), reverse=True)
+    if len(scores) < 5 or total_score > int(scores[-1][1]):
+        worksheet.append_row([username, total_score])
+        print("Congratulations!\nYou are in the top 5 so far!")
+        print(f"Successfully updated your username '{username}' \nand your total score '{total_score}' to scoreboard!\n")
+    else:
+        print(f"Sorry {username}, your score is not in the top 5.")
 
 def playgame():
     """
