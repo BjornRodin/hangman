@@ -199,8 +199,6 @@ def game_won(word_hidden, word, word_length):
     """
     if ''.join(word_hidden) == word:
         print(f"CONGRATULATIONS!\nYou have guessed the word '{word}' and win the game!")
-        #score = add_score(word_length)
-        #print(score)
         return True
     else:
         return False
@@ -255,10 +253,14 @@ def main_functions():
     Running all main functions for the game.
     Make the user able to keep playing if they want to.
     """
+    global total_score
     username = intro()
     play_again = True
     while play_again:
         input("press Enter to start the game...")
         playgame()
         play_again = input("\nWould you like to play again? (y/n)\n").lower() == "y"
+        if not play_again:
+            print(f"\nThanks for playing!\nYour final score was: {total_score}\n")
+            total_score = 0
 main_functions()
