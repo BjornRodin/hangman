@@ -150,7 +150,7 @@ def initialize():
     game_over = False
     score = 0
     print(word)
-    return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over
+    return word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over, score
 
 def get_user_input(letters_guessed, guesses_remaining, word_hidden):
     """
@@ -192,18 +192,20 @@ def guess_not_word(guesses_remaining, guess, word):
     else:
         print(f"\nWrong! The letter '{guess.upper()}' is not in the word!\n")
 
-def game_won(word_hidden, word):
+def game_won(word_hidden, word, word_length, score):
     """
     Check if the hidden word is equal to word.
     Ending game if it is.
     """
     if ''.join(word_hidden) == word:
         print(f"CONGRATULATIONS!\nYou have guessed the word '{word}' and win the game!")
+        score = add_score(word_length, score)
+        print(score)
         return True
     else:
         return False
 
-def score(word_length, score):
+def add_score(word_length, score):
     if word_length <= 3:
         score += 40
     elif word_length <= 6:
@@ -223,7 +225,7 @@ def playgame():
     Value 'guess' is then compared to variables 'letters_guessed' and 'word' and the
     game continue by calling previous functions depending on which stage it is.
     """
-    word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over = initialize()
+    word, word_length, word_hidden, guesses_remaining, letters_guessed, game_over, score = initialize()
     print(f"\nThe word has {word_length} letters in it. Good luck!\n")
 
     # Looping through the game, calling functions when needed.
@@ -235,7 +237,7 @@ def playgame():
             elif guess in word:
                 letters_guessed.append(guess)
                 update_hidden_word(word, word_hidden, guess, word_length)
-                game_over = game_won(word_hidden, word)
+                game_over = game_won(word_hidden, word, word_length, score)
                 if game_over:
                     break
             elif guess not in word:
