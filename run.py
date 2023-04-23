@@ -275,6 +275,7 @@ def add_score(word_length):
 def gameinfo_to_sheet(username, total_score):
     """
     Updating spreadsheet with the username the user chose and their final score
+    if their score is atleast in the top 5 of all previous scores.
     """
     print("Updating scoreboard...\n")
     worksheet = SHEET.worksheet('scores')
@@ -284,12 +285,17 @@ def gameinfo_to_sheet(username, total_score):
     print()
     scores.sort(key=lambda row: int(row[1]), reverse=False)
     print(scores)
-    if len(scores) < 5 or total_score > int(scores[-1][1]):
+    if len(scores) < 5 or total_score > int(scores[-5][1]):
         worksheet.append_row([username, total_score])
         print("Congratulations!\nYou are in the top 5 so far!")
         print(f"Successfully updated your username '{username}' \nand your total score '{total_score}' to scoreboard!\n")
     else:
         print(f"Sorry {username}, your score is not in the top 5.")
+    
+    scoreboard = scores[5:][::-1]
+    print("\nTop 5 scores in Scoreboard:")
+    for i, row in enumerate(scoreboard):
+        print(f"{i+1}. {row[0]} - {row[1]}")
 
 def playgame():
     """
