@@ -276,6 +276,7 @@ def gameinfo_to_sheet(username, total_score):
     """
     Updating spreadsheet with the username the user chose and their final score
     if their score is atleast in the top 5 of all previous scores.
+    Then printing top 5 to a scoreboard.
     """
     print("Updating scoreboard...\n")
     worksheet = SHEET.worksheet('scores')
