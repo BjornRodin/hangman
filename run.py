@@ -32,23 +32,26 @@ def intro():
     asking for the username the user want to use,
     we check so it is a valid input.
     """
-    print("Welcome to a game of Hangman!\n")
+    print()
     print(graphic_start())
-    print("The rules are simple:")
-    print("1. You are presented with a number of underscores,")
-    print("   that is the length of the word.")
-    print("2. Guess 1 letter at a time by entering the letter,")
-    print("   and then click 'Enter'.")
-    print("3. If the letter is correct,")
-    print("   it replaces the corresponding underscore(s).")
-    print("4. If the letter is incorrect, you lose 1 of your guesses.")
-    print("   4a. The number of guesses depends on the length of the word.")
-    print("   4b. Loose all guesses and you have lost the game.")
-    print("5. If you guessed all letters in the word, you win!")
-    print("6. Shorter words score better than longer ones")
-    print("   and more remaining guesses also improve the score.\n")
-    print("Let's play!")
-
+    introduction_message = (
+        "Welcome to a game of Hangman!\n"
+        "The rules are simple:\n"
+        "\n1. You are presented with a number of underscores,\n"
+        "   that is the length of the word.\n"
+        "2. Guess 1 letter at a time by entering the letter,\n"
+        "   and then click 'Enter'.\n"
+        "3. If the letter is correct,\n"
+        "   it replaces the corresponding underscore(s).\n"
+        "4. If the letter is incorrect, you lose 1 of your guesses.\n"
+        "   4a. The number of guesses depends on the length of the word.\n"
+        "   4b. Loose all guesses and you have lost the game.\n"
+        "5. If you guessed all letters in the word, you win!\n"
+        "6. Shorter words score better than longer ones\n"
+        "   and more remaining guesses also improve the score.\n"
+        "\nLet's play!"
+    )
+    print(introduction_message)
     username = ""
     while True:
         username = input("\nEnter your Username: \n")
@@ -85,7 +88,11 @@ def random_word():
     """
     non_empty_cells = [word for word in words if word[0].strip()]
     word_list = random.choice(non_empty_cells)
-    return word_list[0].strip()
+    word = word_list[0].strip()
+    while len(word) == 0:
+        word_list = random.choice(non_empty_cells)
+        word = word_list[0].strip()
+    return word
 
 
 def graphic_start():
