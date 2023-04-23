@@ -103,7 +103,8 @@ def graphic_start():
 
 def graphic(guesses_remaining):
     """
-    Graphics used throughout the game depending guesses_remaining.
+    Graphics used throughout the game depending
+    on guesses_remaining.
     """
     if guesses_remaining > 9:
         return ("            \n"
@@ -215,6 +216,11 @@ def initialize():
 
 
 def calculate_guesses(word_length):
+    """
+    Gives different amount of guesses depending on word_length
+    Shorter words is harder to guess and for that reason get
+    more guesses to start with.
+    """
     if word_length <= 3:
         guesses_remaining = 10
     elif word_length <= 6:
@@ -263,7 +269,7 @@ def update_hidden_word(word, word_hidden, guess, word_length):
 def guess_not_word(guesses_remaining, guess, word):
     """
     Check if there is any guesses remaining, if not, game is over.
-    Else user is presented with the guess saying it's wrong.
+    Else user is presented with their guess saying it's wrong.
     """
     if guesses_remaining == 0:
         print(graphic(guesses_remaining))
@@ -291,6 +297,12 @@ def game_won(word_hidden, word, word_length):
 
 
 def add_score(word_length, guesses_remaining):
+    """
+    Calculating score by giving every word a base value,
+    value is then decreased depending on word_length,
+    then increased by number of guesses left.
+    Shorter words are harder to guess and will give more points
+    """
     global total_score
     base_score = 100
     word_score = base_score - (word_length * 5)
@@ -399,4 +411,7 @@ def main_functions():
 
 
 if __name__ == '__main__':
+    """
+    Ensures the code only executes when script is run directly by user.
+    """
     main_functions()
