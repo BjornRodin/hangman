@@ -43,7 +43,7 @@ def intro():
     introduction_message = (
         " Welcome to a game of Hangman!\n"
         " The rules are simple:\n"
-        " \n1. You are presented with a number of underscores,\n"
+        "\n1. You are presented with a number of underscores,\n"
         "    that is the length of the word.\n"
         " 2. Guess 1 letter at a time by entering the letter,\n"
         "    and then click 'Enter'.\n"
