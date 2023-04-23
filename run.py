@@ -55,6 +55,7 @@ def intro():
         "5. If you guessed all letters in the word, you win!\n"
         "6. Shorter words score better than longer ones\n"
         "   and more remaining guesses also improve the score.\n"
+        "7. All words are nouns.\n"
         "\nLet's play!"
     )
     print(introduction_message)
@@ -100,7 +101,6 @@ def random_word():
         word_list = random.choice(non_empty_cells)
         word = word_list[0].strip()
     used_words.append(word)
-    print(used_words)
     return word
 
 
