@@ -32,6 +32,11 @@ total_score = 0
 used_words = []
 
 
+def print_indentation(msg, indent_level=1):
+    indent = " " * 1 * indent_level
+    print(f"{indent}{msg}")
+
+
 def intro():
     """
     Gameintro showing rules to the user.
@@ -41,24 +46,24 @@ def intro():
     print()
     print(graphic_start())
     introduction_message = (
-        " Welcome to a game of Hangman!\n"
+        "Welcome to a game of Hangman!\n"
         " The rules are simple:\n"
-        "\n 1. You are presented with a number of underscores,\n"
-        "    that is the length of the word.\n"
-        " 2. Guess 1 letter at a time by entering the letter,\n"
-        "    and then click 'Enter'.\n"
-        " 3. If the letter is correct,\n"
-        "    it replaces the corresponding underscore(s).\n"
-        " 4. If the letter is incorrect, you lose 1 of your guesses.\n"
-        "    4a. The number of guesses depends on the length of the word.\n"
-        "    4b. Lose all guesses and you have lost the game.\n"
-        " 5. If you guessed all letters in the word, you win!\n"
-        " 6. Shorter words score better than longer ones\n"
-        "    and more remaining guesses also improve the score.\n"
-        " 7. All words are nouns.\n"
-        " \nLet's play!"
+        "\n1. You are presented with a number of underscores,\n"
+        "   that is the length of the word.\n"
+        "2. Guess 1 letter at a time by entering the letter,\n"
+        "   and then click 'Enter'.\n"
+        "3. If the letter is correct,\n"
+        "   it replaces the corresponding underscore(s).\n"
+        "4. If the letter is incorrect, you lose 1 of your guesses.\n"
+        "   4a. The number of guesses depends on the length of the word.\n"
+        "   4b. Lose all guesses and you have lost the game.\n"
+        "5. If you guessed all letters in the word, you win!\n"
+        "6. Shorter words score better than longer ones\n"
+        "   and more remaining guesses also improve the score.\n"
+        "7. All words are nouns.\n"
+        "\nLet's play!"
     )
-    print(introduction_message)
+    print_indentation(introduction_message)
     username = ""
     while True:
         username = input("\nEnter your Username: \n")
