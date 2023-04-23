@@ -313,7 +313,7 @@ def gameinfo_to_sheet(username, total_score):
     if len(scores) < 5 or total_score > int(scores[-5][1]):
         worksheet.append_row([username, total_score])
         top5_update_message = (
-            "Congratulations!\nYou are in the top 5!"
+            "Congratulations!\nYou are in the top 5!\n"
             f"Successfully updated your username '{username}'\n"
             f"and your total score '{total_score}' to scoreboard!\n"
         )
@@ -328,7 +328,6 @@ def gameinfo_to_sheet(username, total_score):
     print("\nTop 5 scores in Scoreboard:")
     for i, row in enumerate(scores[::-1]):
         print(f"{i+1}. {row[0]} - {row[1]}pts")
-        print()
 
 
 def playgame():
@@ -357,7 +356,7 @@ def playgame():
             if guess in letters_guessed:
                 letters_guessed_message = (
                     f"\nThe letter '{guess.upper()}' has already been guessed."
-                    "\nTry another letter!\n""
+                    "\nTry another letter!\n"
                 )
                 print(letters_guessed_message)
             elif guess in word:
