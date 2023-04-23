@@ -289,12 +289,19 @@ def gameinfo_to_sheet(username, total_score):
         worksheet.append_row([username, total_score])
         print("Congratulations!\nYou are in the top 5 so far!")
         print(f"Successfully updated your username '{username}' \nand your total score '{total_score}' to scoreboard!\n")
+        scores.append([username, total_score])
+        scores.sort(key=lambda row: int(row[1]), reverse=False)
+        print(scores)
+        scores = scores[-5:]
+        print()
+        print(scores)
     else:
         print(f"Sorry {username}, your score is not in the top 5.")
+        scores = scores[-5:]
+        print(scores)
     
-    scoreboard = scores[5:][::-1]
     print("\nTop 5 scores in Scoreboard:")
-    for i, row in enumerate(scoreboard):
+    for i, row in enumerate(scores[::-1]):
         print(f"{i+1}. {row[0]} - {row[1]}")
 
 def playgame():
