@@ -45,7 +45,7 @@ def intro():
         "   it replaces the corresponding underscore(s).\n"
         "4. If the letter is incorrect, you lose 1 of your guesses.\n"
         "   4a. The number of guesses depends on the length of the word.\n"
-        "   4b. Loose all guesses and you have lost the game.\n"
+        "   4b. Lose all guesses and you have lost the game.\n"
         "5. If you guessed all letters in the word, you win!\n"
         "6. Shorter words score better than longer ones\n"
         "   and more remaining guesses also improve the score.\n"
