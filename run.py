@@ -92,12 +92,15 @@ def random_word():
     Because the word is still in a list,
     we have to remove [] and '' with the strip function
     """
+    global used_words
     non_empty_cells = [word for word in words if word[0].strip()]
     word_list = random.choice(non_empty_cells)
     word = word_list[0].strip()
-    while len(word) == 0:
+    while len(word) == 0 or word in used_words:
         word_list = random.choice(non_empty_cells)
         word = word_list[0].strip()
+    used_words.append(word)
+    print(used_words)
     return word
 
 
