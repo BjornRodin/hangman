@@ -21,9 +21,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman')
 
+# Retrieving words from spreadsheet
 wordlist = SHEET.worksheet('words')
 words = wordlist.get_all_values()
+
+# Setting global total_score variable to store until game is ended
 total_score = 0
+
+# Storing used words until game is ended
+used_words = []
 
 
 def intro():
