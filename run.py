@@ -30,8 +30,7 @@ def intro():
     Gameintro showing rules to the user.
     asking for the username the user want to use, we check so it is a valid input.
     """
-    print("Welcome to a game of Hangman!")
-    print()
+    print("Welcome to a game of Hangman!\n")
     print(graphic_start())
     print("The rules are simple:")
     print("1. You are presented with a number of underscores, that is the length of the word.")
@@ -41,7 +40,7 @@ def intro():
     print("   4a. The number of guesses depends on the length of the word.")
     print("   4b. Loose all guesses and you have lost the game.")
     print("5. If you guessed all letters in the word, you win!")
-    print()
+    print("6. Shorter words score better than longer ones.\nAnd more remaining guesses also improve the score.\n")
     print("Let's play!")
 
     username = ""
@@ -261,16 +260,12 @@ def game_won(word_hidden, word, word_length):
     else:
         return False
 
-def add_score(word_length):
+def add_score(word_length, guesses_remaining):
     global total_score
-    if word_length <= 3:
-        total_score += 40
-    elif word_length <= 6:
-        total_score += 30
-    elif word_length <= 9:
-        total_score += 20
-    else:
-        total_score += 10
+    base_score = 100
+    word_score = base_score - (word_length * 5)
+    guess_score = guesses_remaining * 5
+    total_score += word_score + guess_score
 
 def gameinfo_to_sheet(username, total_score):
     """
@@ -296,7 +291,8 @@ def gameinfo_to_sheet(username, total_score):
     
     print("\nTop 5 scores in Scoreboard:")
     for i, row in enumerate(scores[::-1]):
-        print(f"{i+1}. {row[0]} - {row[1]}")
+        print(f"{i+1}. {row[0]} - {row[1]}pts")
+        print()
 
 def playgame():
     """
@@ -322,7 +318,7 @@ def playgame():
                 update_hidden_word(word, word_hidden, guess, word_length)
                 game_over = game_won(word_hidden, word, word_length)
                 if game_over:
-                    add_score(word_length)
+                    add_score(word_length, guesses_remaining)
                     print(f"\nYour current total score is: {total_score}")
                     break
             elif guess not in word:
