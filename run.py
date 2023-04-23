@@ -32,11 +32,6 @@ total_score = 0
 used_words = []
 
 
-def print_indentation(msg, indent_level=1):
-    indent = " " * 1 * indent_level
-    print(f"{indent}{msg}")
-
-
 def intro():
     """
     Gameintro showing rules to the user.
@@ -47,7 +42,7 @@ def intro():
     print(graphic_start())
     introduction_message = (
         "Welcome to a game of Hangman!\n"
-        " The rules are simple:\n"
+        "The rules are simple:\n"
         "\n1. You are presented with a number of underscores,\n"
         "   that is the length of the word.\n"
         "2. Guess 1 letter at a time by entering the letter,\n"
@@ -63,7 +58,7 @@ def intro():
         "7. All words are nouns.\n"
         "\nLet's play!"
     )
-    print_indentation(introduction_message)
+    print(introduction_message)
     username = ""
     while True:
         username = input("\nEnter your Username: \n")
