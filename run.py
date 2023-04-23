@@ -179,37 +179,37 @@ def graphic(guesses_remaining):
                 "  /|\\      \n"
                 " / | \\     \n")
     elif guesses_remaining > 2:
-        return ("   |-----|  \n"
-                "   |     |  \n"
-                "   |     0  \n"
-                "   |   \\|  \n"
-                "   |     |  \n"
-                "  /|\\      \n"
-                " / | \\     \n")
+        return ("   |-----|   \n"
+                "   |     |   \n"
+                "   |     0   \n"
+                "   |    \\|  \n"
+                "   |     |   \n"
+                "  /|\\       \n"
+                " / | \\      \n")
     elif guesses_remaining > 1:
-        return ("   |-----|  \n"
-                "   |     |  \n"
-                "   |     0  \n"
-                "   |   \\|/ \n"
-                "   |     |  \n"
-                "  /|\\      \n"
-                " / | \\     \n")
+        return ("   |-----|   \n"
+                "   |     |   \n"
+                "   |     0   \n"
+                "   |    \\|/ \n"
+                "   |     |   \n"
+                "  /|\\       \n"
+                " / | \\      \n")
     elif guesses_remaining > 0:
-        return ("   |-----|  \n"
-                "   |     |  \n"
-                "   |     0  \n"
-                "   |   \\|/ \n"
-                "   |     |  \n"
-                "  /|\\  /   \n"
-                " / | \\     \n")
+        return ("   |-----|   \n"
+                "   |     |   \n"
+                "   |     0   \n"
+                "   |    \\|/ \n"
+                "   |     |   \n"
+                "  /|\\   /   \n"
+                " / | \\      \n")
     else:
-        return ("   |-----|  \n"
-                "   |     |  \n"
-                "   |     0  \n"
-                "   |   \\|/ \n"
-                "   |     |  \n"
-                "  /|\\  / \\\n"
-                " / | \\     \n")
+        return ("   |-----|   \n"
+                "   |     |   \n"
+                "   |     0   \n"
+                "   |    \\|/ \n"
+                "   |     |   \n"
+                "  /|\\   / \\\n"
+                " / | \\      \n")
 
 
 def initialize():
@@ -288,6 +288,7 @@ def guess_not_word(guesses_remaining, guess, word):
     Else user is presented with their guess saying it's wrong.
     """
     if guesses_remaining == 0:
+        print()
         print(graphic(guesses_remaining))
         print(f"GAME OVER!\nThe word was '{word}'.")
         print(f"\nYour current total score is: {total_score}")
@@ -355,7 +356,7 @@ def gameinfo_to_sheet(username, total_score):
 
     print("\nTop 5 scores in Scoreboard:")
     for i, row in enumerate(scores[::-1]):
-        print(f"{i+1}. {row[0]} - {row[1]}pts")
+        print(f"{i+1}. {row[0]} - {row[1]} pts")
 
 
 def playgame():
