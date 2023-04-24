@@ -385,26 +385,26 @@ def playgame():
                 guesses_remaining,
                 word_hidden
             )
+            if guess in letters_guessed:
+                letters_guessed_message = (
+                    f"\nThe letter '{guess.upper()}' has already been guessed."
+                    "\nTry another letter!\n"
+                )
+                print(letters_guessed_message)
+            elif guess in word:
+                letters_guessed.append(guess)
+                update_hidden_word(word, word_hidden, guess, word_length)
+                game_over = game_won(word_hidden, word, word_length)
+                if game_over:
+                    add_score(word_length, guesses_remaining)
+                    print(f"\nYour current total score is: {total_score}")
+                    break
+            else:
+                guesses_remaining -= 1
+                letters_guessed.append(guess)
+                guess_not_word(guesses_remaining, guess, word)
         except ValueError as e:
             print(e)
-        if guess in letters_guessed:
-            letters_guessed_message = (
-                f"\nThe letter '{guess.upper()}' has already been guessed."
-                "\nTry another letter!\n"
-            )
-            print(letters_guessed_message)
-        elif guess in word:
-            letters_guessed.append(guess)
-            update_hidden_word(word, word_hidden, guess, word_length)
-            game_over = game_won(word_hidden, word, word_length)
-            if game_over:
-                add_score(word_length, guesses_remaining)
-                print(f"\nYour current total score is: {total_score}")
-                break
-        else:
-            guesses_remaining -= 1
-            letters_guessed.append(guess)
-            guess_not_word(guesses_remaining, guess, word)
 
 
 def main_functions():
