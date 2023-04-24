@@ -41,7 +41,7 @@ def intro():
     print()
     print(graphic_start())
     introduction_message = (
-        "Welcome to a game of Hangman3000!\n"
+        "Welcome to a game of Hangman 3000!\n"
         "The rules are simple:\n"
         "\n1. You are presented with a number of underscores,\n"
         "   that is the length of the word.\n"
