@@ -78,9 +78,8 @@ As a first time visitor I want to:
 
 #### Returning Visitor Goals
 As a returning visitor I want to:
-- be able to chose difficulty and change it easily.
-- have feedback on my performance so I can challenge myself.
 - be able to quickly restart the game when it's over.
+- see the top scores so I can try to beat it.
 - have a calm background and game with pleasing design.
 
 #### Administrators
@@ -151,45 +150,42 @@ To create the general idea of the site [Balsamiq](https://balsamiq.com/) was use
 
 ### User Stories Testing
 
-#### As a first time visitor I want to quickly understand where to find the rules
-- As soon as the page is loaded the user can easily see the button "How to Play?".
-- When hovering above the button it changes background-color to indicate the user can click on it.
-- When clicked the rules pops up and is presented in a clear fashion and also show what the different scores mean.
+#### As a first time visitor I want to quickly find and understand the rules
+- As soon as the game is loaded the user can easily see the rules printed on the screen.
 
-#### As a first time visitor I want to know where to start the game
-- As soon as the page is loaded the user can easily see the button "Let's Play!".
-- When hovering above the button it changes background-color to indicate the user can click on it.
+#### As a first time visitor I want to know how to start the game
+- As soon as the game is loaded the cursor is set to the bottom of the page, asking for the users username. As this is the only thing the user can interact with it is logical for the user to start there.
+- When username is entered and accepted the user is presented with a message saying "press Enter to start the game...".
+- When the user lost all their guesses or guessed the word correctly the game prompts the user with a choice if they want to play again or not.
 
-#### As a first time visitor I want to see what my score is and how much time I have left
-- Above the mole-area the user from the very beginning can see their hits, misses and how much time they got.
-- All the information is updated in real time so the user always can see how they are doing, both with the scores but also regarding how much time they have left.
+#### As a first time visitor I want to get feedback along the way of the game
+- Every time the user enters some input that input is validated in the code, if not valid the user is presented with what they have to do.
+- When guessing wrong or correct letter the user get printed messages showing what their input was and if it was wrong/correct.
+- When the input has been checked for wrong/correct then the corresponding graphics is updated accordingly.
+- This continues all the way until remaining guesses is "0" or the word is guessed correctly, depending on which the feedback changes.
 
-#### As a returning visitor I want to be able to chose difficulty and change it easily
-- Directly above the "How to Play?" and "Let's Play!" buttons the user is presented with a dropdown to choose their prefered difficulty, as standard "Easy" is preselected on page-load. 
-
-#### As a returning visitor I want to have feedback on my performance so I can challenge myself
-- When the game is over the user is presented with a popup that gives the user a short message regarding their performance, the score is also presented. Hence they know how well they performed and if they want to they can try to beat the score by either clicking "Play again" or closing the popup to change the level of difficulty before starting again.
+#### As a returning visitor I want to see the top scores so I can try to beat it
+- When the game is over and the user chooses to stop playing, the game check if the score that is accumulated is in the top 5 scores overall. If it is their result is added to the board. It doesn't matter if the user is in the top 5 or not, when this is checked the scoreboard is printed.
 
 #### As a returning visitor I want to be able to quickly restart the game when it's over
-- On the popup when the game is over there is a button "Play again" the user can click to restart the game with the same settings as before.
+- As mentioned earlier, when there is no more guesses or the word is guessed correctly the game prompts the user with a choice to play again or to stop.
 
 #### As a returning visitor I want to have a calm background and game with pleasing design
-- The background gives a "cartoonish" feeling with calm colors and also a sense of relevancy (farmers don't want moles in their fields).
-- There is no really bright colors and it is clear that the only thing the user can interact with is the grid and the buttons below.
-- The mole itself look like he is jumping up from the piles of dirt and also brings the "cartoonish" feeling. When the mole is hit it rotates to the left to indicate that it was hit.
+- As there is not much design specifically in the game, that is not the primary goal of this project, it is not much to mention.
+- The game is kept simple and logical, some graphics is added to make it more fun to look at and it also works as feedback for the user.
+- However, the background is black, text is white, so the contrast between those two is very good and hence make it calmer for the eyes.
 
 #### As a administrator I want to provide the users with a game that is easy to navigate
-- When the website loads the users are clearly presented with the name of the game, a game-info area, a game-area and a control-area.
-- Over the game, control-areas and buttons the cursor turns into a pointer to indicate the user can interact with the area.
-- When hovering above buttons the background color changes to indicate even further that the user can click on them.
+- As the game is run in a command-window the navigation is very simple. Any inputs asked for is always entered at the bottom of the page and the cursor is always automatically moved along.
+- The messages for what information to input is simple and if something is wrong a message to correct the misstake is printed so the user can correct their input.
 
 #### As a administrator I want to provide simple functions to not overcomplicate things
-- Except for the "How to Play?" and "Let's Play!" buttons the user can only choose what level of difficulty they want to play. And if the user don't want to change the settings then they can click "Let's Play!" right away and the game will start.
+- It is very simple as the user can't deviate from the premade path of the game.
 
 #### As a administrator I want to provide a design and feedback that is fun and engages with the user
-- The game is designed to be "cartoonish" so the user clearly can see that it is a game and not made to be realistic.
-- Feedback like the mole rotating to the left when being hit aswell as the game-info area is made to engage with the user during the game in a clear fashion.
-- When the game is ended the user are presented with their score and a message about their performance, hopefully to make them play again and again.
+- Regarding the design I've done what I could to make it as pleasing as possible aswell as provide utility to the user.
+- The hangman graphics is updated depending on how many guesses there is left which make the game way more fun than if it was not present.
+- Having the scoreboard printed in the end of the game is probably one of the most important parts to make a user want to play again to either beat their own score or someone elses.
 
 ### Automated Testing
 
