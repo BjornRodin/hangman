@@ -271,6 +271,12 @@ I can't really test the responsiveness as "it is what it is", but I still put it
 - [Google Chrome Lighthouse](https://developers.google.com/web/tools/lighthouse) was used when testing the site.
 - [W3C School](https://www.w3schools.com/) was used to aid in coding.
 - [Am I Responsive](https://ui.dev/amiresponsive?url=https://hangman-3000.herokuapp.com/) was used to give the reader a quick and easy way to see the responsiveness of the site and also to have a image for the introduction of the Readme.md.
+- [RandomWordGenerator](https://randomwordgenerator.com/noun.php) was used to generate words (nouns) to use in the spreadsheet.
+- [Reddit](https://www.reddit.com/r/dataisbeautiful/comments/9b036p/the_number_of_wrong_guesses_needed_to_win_at/) was used to get information about how hard it is to guess different lengths of words.
+- [CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python-code.
+- [Google Sheets](https://www.google.com/sheets/about/) was used to create the spreadsheet used in the project.
+- [Google Sheet API](https://developers.google.com/sheets/api/guides/concepts) used to connect the project with the spreadsheet it can be accessed.
+- [Heroku](www.heroku.com) project is deployed to Heroku to make it into an app that is accessible through a browser.
 
 ## Deployment 
 
