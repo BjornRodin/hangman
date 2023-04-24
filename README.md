@@ -1,14 +1,14 @@
-# Whack-A-Mole
+# Hangman 3000
 
 ## Introduction
-This is a Whack a Mole game where you can play a cool game of Whack-a-mole. It's made to be attractive for the user and provide some fun for both first time players and veterans. 
+This is a Hangman game where you can guess the hidden word and get scores depending on your performance. It's made to be attractive for the user and provide some fun for both first time players and veterans. 
 
-[View the live project here](https://bjornrodin.github.io/whac-a-mole/)
+[View the live project here](https://hangman-3000.herokuapp.com/)
 
-[Link to Github Repository](https://github.com/BjornRodin/whac-a-mole)
+[Link to Github Repository](https://github.com/BjornRodin/hangman)
 
 
-![Am I Responsive?](documentation/readme-images/introductionimage.JPG)
+![Am I Responsive?](documentation/readme-images/introduction-image.JPG)
 
 ## Table of Content
 - [Introduction](#introduction)
@@ -64,16 +64,17 @@ This is a Whack a Mole game where you can play a cool game of Whack-a-mole. It's
 ## User Experience (UX)
 
 ### Introduction
-The goal for this website is to provide people with a fun game to spend some time but not having to invest hours upon hours of gametime. Play the game wherever you are and whenever you feel like it. You have three levels to chose between so if you are a new player or a veteran you should still find it challenging if you want to. During the game the scoreboard will be updated depending if you miss or hit the mole, if the mole is hit it will rotate to indicate that you have hit. When the game is over you will be presented with your score and some feedback about how well you have performed.
+The goal for this website is to provide people with a fun game to spend some time but not having to invest hours upon hours of gametime. Play the game wherever you are and whenever you feel like it. The hidden words is chosen from a list of 450+ unique nouns and within each game the same word can't be chosen twice. The difficulty is random, due to the length of the words, but thanks to a adaptive scoring system you will get more points if the word is harder.
+In the end of the game you can either chose to play again and guess another word (and further increase your score) or to end the game. Whenever the game is ended you will be updated if you are in the top 5 or not and then the scoreboard is printed.
 Enjoy!
 
 ### User Stories
 
 #### First Time Visitor Goals
 As a first time visitor I want to:
-- quickly understand where to find the rules.
-- know where to start the game.
-- see what my score is and how much time I have left.
+- quickly find and understand the rules.
+- know how to start the game.
+- get feedback along the way of the game.
 
 #### Returning Visitor Goals
 As a returning visitor I want to:
