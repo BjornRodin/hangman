@@ -223,7 +223,6 @@ def initialize():
     guesses_remaining = calculate_guesses(word_length)
     letters_guessed = []
     game_over = False
-    print(word)
     return (word,
             word_length,
             word_hidden,
