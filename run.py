@@ -339,6 +339,8 @@ def gameinfo_to_sheet(username, total_score):
     # https://stackoverflow.com/questions/8966538/syntax-behind-sortedkey-lambda
     scores = worksheet.get_all_values()[1:]
     scores.sort(key=lambda row: int(row[1]), reverse=False)
+    # Checking if there is less than 5 values in spreadsheet or if the
+    # total_score is less than the 5th position in the spreadsheet
     if len(scores) < 5 or total_score > int(scores[-5][1]):
         worksheet.append_row([username, total_score])
         top5_update_message = (

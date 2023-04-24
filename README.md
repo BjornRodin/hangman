@@ -208,33 +208,13 @@ If the user continue playing and guess the next word aswell the score from that 
 ### Automated Testing
 
 #### W3C Markup Validation Service
-- index.html
-    - Result
-        - According to the image below there is no errors or warnings to show.
-
-    ![Index.html test](documentation/readme-images/indexhtml-htmlchecker.JPG)
-- 404.html
-    - Result
-        - According to the image below there is no errors or warnings to show.
-
-    ![Index.html test](documentation/readme-images/indexhtml-htmlchecker.JPG)
+In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those because i'm not allowed to change them anyway.
 
 #### W3C CSS Validation Service
-- style.css
-    - Result
-        - According to the image below there is no errors to show.
-        - According to the image below there is a few warnings to show, more about those under "Warnings".
-
-    ![style.css test](documentation/readme-images/stylecss-cssvalidation.JPG)
-
-    ![style.css test](documentation/readme-images/stylecss-csswarnings.JPG)
+In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those because i'm not allowed to change them anyway.
 
 #### JSHint Javascript Validator
-- script.js
-    - Result
-        - According to the image below there is no errors or warnings.
-
-    ![script.js test](documentation/readme-images/scriptjs-jshintchecker.JPG)
+In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those because i'm not allowed to change them anyway.
 
 #### Google Lighthouse Performance Test
 The tests are all made in the same way:
@@ -245,17 +225,19 @@ The tests are all made in the same way:
 
 - Desktop
 
-    ![desktoplighthouse](documentation/readme-images/desktoplighthouse.JPG)
+    ![desktoplighthouse](documentation/readme-images/lighthouse-desktop.JPG)
 - Mobile
 
-    ![mobilelighthouse](documentation/readme-images/mobilelighthouse.JPG)
+    ![mobilelighthouse](documentation/readme-images/lighthouse-mobile.JPG)
+
+#### Python Validator
+To test the python code the [CI Python Linter](https://pep8ci.herokuapp.com/#) was used. To do it I copied all code from GitPod and printed it to the validator. I forgot to printscreen the first result but after handling all the things it mentioned the code is now all clear and validated.
+Most things that it raised as issues was to few spaces between functions, some whitespaces that had to be removed and code being to wide. I made the changes inside the validator first as it was updating live whenever I made a change so it was a really handy tool to use!
+
+    ![python-validator](documentation/readme-images/python-validator.JPG)
 
 #### Warnings
-- CSS Warnings
-    - The first warning is just that the W3C validator can't validate the imported style sheet. So it's fine to leave it as it is.
-        - Source: [Stackoverflow](https://stackoverflow.com/questions/25946111/importing-css-is-ending-up-with-an-error)
-    - The second and third warning is only a "heads-up" that they might not be working on older browsers. According to this [source](https://stackoverflow.com/questions/52490004/what-are-all-of-these-w3c-css-validation-warnings-about) it is fine to leave these aswell.
-    - The fourth warning is another "heads-up" that it might not be supported on certain browsers. However, according to this [source](https://stackoverflow.com/questions/41406627/css-pointer-events-and-appearance-properties-not-recognized-by-css-validator) this happens because the property hasn't yet achieved a high official status in the W3C validator but is nonetheless supported by major browsers. So I will leave it.
+No present warnings.
 
 ### Manual Testing
 Tested according to below image and passing everything.
@@ -263,39 +245,32 @@ Tested according to below image and passing everything.
 ![testingmanual](documentation/readme-images/manualtesting.JPG)
 
 #### Responsiveness
-All the pages was tested with different screen sizes through Developer Tools in the Google Chrome Browser. Below is also a link to 'amiresponsive' where it is also possible to see how the site look on different screen sizes at the same time.
+I can't really test the responsiveness as "it is what it is", but I still put it into the Am I Responsive website just to get some images for it. However, the game works both on desktop and on mobiles.
 
-[Am I Responsive?](https://ui.dev/amiresponsive?url=https://bjornrodin.github.io/whac-a-mole/)
+[Am I Responsive?](https://ui.dev/amiresponsive?url=https://hangman-3000.herokuapp.com/)
 
-![manualresponsiveness](documentation/readme-images/manualresponsiveness.JPG)
+![Am I Responsive?](documentation/readme-images/introduction-image.JPG)
 
 ## Bugs
-- One of the more major bugs I encountered was to make the mole rotate to one side whenever it was hit. For the better part of the project I let it be but in the end I really wanted to solve the issue. The issue was that whenever I tried adding another background image or rotate the existing mole it either totaly overid the existing backgrounds or the image was distorted. After much trial and error I got it working.
-- When adding the difficulty selecting feature the mole kept running the same speed  even though another level was set. It took a while for me to realize to add the variables into the randomBox function aswell so it actually changed the speed depending on what the user is choosing. Now it works.
+1. Encountered a "bug" where it could be possible for the random word to be an empty cell if any of those were to be present in the spreadsheet.
+    - It was resolved with a while loop to make sure the word can't be "0" characters long, meaning it has to have some kind of content.
+2. I had issues with replacing underscores in the word_hidden variable in the beginning due to making it into a "string". 
+    - After discussing this with my mentor he asked me to check out to make it into a "list" instead because those are easier to change. So that is what I did and it solved the issue so the variable updates correctly and present the user with the correct output.
+3. While implementing the scoreboard there was some issues with both checking the values in the spreadsheet correctly, updating them and then printing them in the correct order.
+    - I found much to use from this post [stackoverflow](https://stackoverflow.com/questions/8966538/syntax-behind-sortedkey-lambda) to aid me in how to sort values and so forth. After much testing I realized I was sorting the values incorrectly which inherently made functions related to it not work as expected. Now it only append the username and score if there is either less than 5 values in the spreadsheet or if the score is in the top 5. This also make sure that the spreadsheet won't be totally filled with data as not all finished games will be appended.
+4. When first starting out, many of the functionalities was implemented in the same function, playgame, I quickly realized that won't work. But I wanted to have more functionality before starting to refactoring the code. When that process started there was a few "bugs" due to code not being called correctly or put in the wrong places. 
+    - To fix this it was much "trial by error" but also much reading the code over and over again asking myself what I was really asking it to do so I could better understand why things wasn't working as expected. 
+    - The terminal in Gitpod also provided with clues, of course, what was wrong so that was used alot.
+    - More than that, general google searches and looking in stackoverflow aided me aswell as the walkthrough project love-sandwiches and the python essentials from Code Institute.
 
 ## Technologies
-- [HTML](https://en.wikipedia.org/wiki/HTML) was used as the main language for the project.
-- [CSS](https://en.wikipedia.org/wiki/CSS) was used to style the HTML elements.
-- [Code Institute Template](https://github.com/Code-Institute-Org/gitpod-full-template) was used during this project.
+- [Code Institute Template](https://github.com/Code-Institute-Org/python-essentials-template) was used during this project.
 - [GitHub](https://github.com/) is the host which is used to store the code.
 - [Git](https://git-scm.com/) was used to commit and push the code to the GitHub repository and works as a version control software. 
-- [Balsamiq](https://balsamiq.com/) was used to create the wireframes.
-- [Google Fonts](https://fonts.google.com/) was used to import the fonts that was used.
-- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/overview/) was used during the whole project, especially while debugging and making it responsive for different screen-sizes.
-- [W3C HTML Validator](https://validator.w3.org/) was used to check for errors in the HTML code in the end of the project.
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to check for errors in the CSS code in the end of the project.
-- [JSHint Javascript Validator](https://jshint.com/) was used to check for errors in the JavaScript code.
+- [Lucidchart](https://www.lucidchart.com) was used to create the flowchart.
 - [Google Chrome Lighthouse](https://developers.google.com/web/tools/lighthouse) was used when testing the site.
 - [W3C School](https://www.w3schools.com/) was used to aid in coding.
-- [Pixabay](https://pixabay.com/) was used to find images for the site.
-- [IMGBIN](https://imgbin.com/) was used to find images for the site.
-- [Vecteezy](https://www.vecteezy.com/) was used to find images for the site.
-- [Adobe Color](https://color.adobe.com/sv/create/image) was used to extract colors from the 'background-field.jpg' image.
-- [My ColorSpace](https://mycolor.space/) Was used to find matching colors for those extracted in Adobe Color.
-- [Contrast Grid](https://contrast-grid.eightshapes.com/) Was used to see how the different color would contrast against black and white texts.
-- [RedKetchup Image Resizer](https://redketchup.io/image-resizer) was used to resize images to improve performance.
-- [Am I Responsive](https://ui.dev/amiresponsive?url=https%3A%2F%2Fbytes.dev) was used to give the reader a quick and easy way to see the responsiveness of the site and also to have a image for the introduction of the Readme.md.
-- [Favicons](https://favicon.io/) was used to add a favicon to the browser.
+- [Am I Responsive](https://ui.dev/amiresponsive?url=https://hangman-3000.herokuapp.com/) was used to give the reader a quick and easy way to see the responsiveness of the site and also to have a image for the introduction of the Readme.md.
 
 ## Deployment 
 
