@@ -147,31 +147,55 @@ If the user continue playing and guess the next word aswell the score from that 
 #### As a first time visitor I want to quickly find and understand the rules
 - As soon as the game is loaded the user can easily see the rules printed on the screen.
 
+    ![intro-rules](documentation/readme-images/intro-rules.JPG)
+
 #### As a first time visitor I want to know how to start the game
 - As soon as the game is loaded the cursor is set to the bottom of the page, asking for the users username. As this is the only thing the user can interact with it is logical for the user to start there.
+
+    ![enter-username](documentation/readme-images/enter-username.JPG)
 - When username is entered and accepted the user is presented with a message saying "press Enter to start the game...".
+
+    ![start-game](documentation/readme-images/start-game.JPG)
 - When the user lost all their guesses or guessed the word correctly the game prompts the user with a choice if they want to play again or not.
 
+    ![game-won](documentation/readme-images/game-won.JPG)
+
 #### As a first time visitor I want to get feedback along the way of the game
-- Every time the user enters some input that input is validated in the code, if not valid the user is presented with what they have to do.
+- Every time the user enters some input that input is validated in the code, if not valid the user is presented with what they have to do. For example:
+
+    ![username-short](documentation/readme-images/username-short.JPG)
 - When guessing wrong or correct letter the user get printed messages showing what their input was and if it was wrong/correct.
+
+    ![correct-guess](documentation/readme-images/correct-guess.JPG)
 - When the input has been checked for wrong/correct then the corresponding graphics is updated accordingly.
-- This continues all the way until remaining guesses is "0" or the word is guessed correctly, depending on which the feedback changes.
+
+    ![wrong-guess](documentation/readme-images/wrong-guess.JPG)
+- This continues all the way until remaining guesses is "0" or the word is guessed correctly, depending on which, the feedback changes.
+
+    ![game-lost](documentation/readme-images/game-lost.JPG)
+
+    ![game-won](documentation/readme-images/game-won.JPG)
 
 #### As a returning visitor I want to see the top scores so I can try to beat it
 - When the game is over and the user chooses to stop playing, the game check if the score that is accumulated is in the top 5 scores overall. If it is their result is added to the board. It doesn't matter if the user is in the top 5 or not, when this is checked the scoreboard is printed.
+
+    ![in-top5](documentation/readme-images/in-top5.JPG)
 
 #### As a returning visitor I want to be able to quickly restart the game when it's over
 - As mentioned earlier, when there is no more guesses or the word is guessed correctly the game prompts the user with a choice to play again or to stop.
 
 #### As a returning visitor I want to have a calm background and game with pleasing design
-- As there is not much design specifically in the game, that is not the primary goal of this project, it is not much to mention.
+- As there is not much design specifically in the game, that is not the primary goal of this project.
 - The game is kept simple and logical, some graphics is added to make it more fun to look at and it also works as feedback for the user.
 - However, the background is black, text is white, so the contrast between those two is very good and hence make it calmer for the eyes.
 
 #### As a administrator I want to provide the users with a game that is easy to navigate
 - As the game is run in a command-window the navigation is very simple. Any inputs asked for is always entered at the bottom of the page and the cursor is always automatically moved along.
-- The messages for what information to input is simple and if something is wrong a message to correct the misstake is printed so the user can correct their input.
+- The messages for what information to input is simple and if something is wrong a message to correct the misstake is printed so the user can correct their input. Some examples below:
+
+    ![guess-number](documentation/readme-images/guess-number.JPG)
+
+    ![username-exists](documentation/readme-images/username-exists.JPG)
 
 #### As a administrator I want to provide simple functions to not overcomplicate things
 - It is very simple as the user can't deviate from the premade path of the game.
