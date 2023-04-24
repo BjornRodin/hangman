@@ -127,20 +127,18 @@ If the user continue playing and guess the next word aswell the score from that 
 - When the user doesn't want to play anymore they can instead chose to stop the game when they are asked if they want to continue or not. If they stop, the game will print a thank-you message, the final score, trying to update the scoreboard, if the score is not in the top 5 a sorry message is printed, if it is though then a congratulation message is printed instead, in the end the scoreboard will be printed either way to show the top 5 scores. See the two below images.
 
     ![not-top5](documentation/readme-images/not-top5.JPG)
-    
+
     ![in-top5](documentation/readme-images/in-top5.JPG)
 
 
 ### Future Features
-- Adding a Highscore scoreboard.
-- More custom messages for the gameover popup.
-    - Chosen randomly depending on what level of difficulty the user is playing and what score they got.
-    - Also adding another message depending on how many moles that are missed.
-- Counting the moles that are getting away, right now we calculate if the user hit or miss the mole or not but not the moles that are getting away so to speak.
-- In the gameover popup the total number of appeared moles could be presented (as it changes due to the random calculation for how long the mole is visible).
-- Making the user able to change the gametime between 30 or 60 seconds depending if they want a shorter game or not. 
-- Adding sound to the game.
-- When the game is started the user could be presented with a short countdown from 3 to be even more ready when the game actually start running.
+- More custom messages randomly chosen to make it feel more "alive" and fun.
+- Importing or finding another way to choose random words, right now a spreadsheet is used where i've generated 450+ random words, would make sense to have thousands to make sure the game can be long-lived.
+- Right now within a single game (where you chose to play again over and over again) the game can't choose the same word twice. But when the game is rerun that is refreshed, so all words is available again. To stop this, a future development could be that a user can access their previous game so that they could continue until all words are used and they will never be able to encounter the same word twice.
+- Colors could be used to emphasize certain elements to even better indicate when something "good" or something "bad" happens.
+- In the scoreboard there could also be a date-stamp to show when each top 5 score was made, this would indicate to a user how active people are in the game.
+- When not guessing a word correctly the users score could be decreased, to penalize it even further.
+- Add a way of choosing difficulty, in this type of game shorter words are harder to guess than longer ones. In the current game this is randomized instead so the user can get both very short words and very long ones. To handle this in my game I made it so the score gained is higher for shorter words than for longer ones. But being able to choose "Easy", "Moderate", "Hard" or "Randomize" could be nice in the future.
 
 ## Testing
 
