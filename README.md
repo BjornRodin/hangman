@@ -39,17 +39,15 @@ This is a Hangman game where you can guess the hidden word and get scores depend
         - [W3C CSS Validation Service](#w3c-css-validation-service)
         - [JSHint Javascript Validator](#jshint-javascript-validator)
         - [Google Lighthouse Performance Test](#google-lighthouse-performance-test)
-            - [Warnings](#warnings)
+        - [Python Validator](#python-validator)
+        - [Warnings](#warnings)
     - [Manual Testing](#manual-testing)
         - [Features Test](#features-test)
-        - [Browser](#browser)
         - [Responsiveness](#responsiveness)
 - [Bugs](#bugs)
 - [Technologies](#technologies)
 - [Deployment](#deployment)
-    - [Deployment Github Pages](#deployment-github-pages)
-    - [Cloning Repository](#cloning-repository)
-    - [Open Cloned Repository](#open-cloned-repository)
+    - [Deployment to Heroku](#deployment-to-heroku)
     - [Version Control](#version-control)
 - [Credits](#credits)
     - [Media](#media)
@@ -92,17 +90,17 @@ The graphics of the hangman was designed from how I used to play the game as a k
 ![Hangman-graphics](documentation/readme-images/hangman-graphic.JPG)
 
 #### Flowchart
-To create the general idea of how the game logically should be running I made a simple flowchart with [Lucidchart](https://www.lucidchart.com). By doing this I had something to lean back on when programming to I had something to guide me. I was almost certain that it was not going to be made exactly as I made the chart, as I have never done one before, but I am happy with the result. It's pretty close to the end product as well so it definitely was a good thing to spend time on. If anything I would probably spend more time on that in the future for other projects, but due to some time-constraints on my end this time I couldn't spend more time on it. 
+To create the general idea of how the game logically should be running I made a simple flowchart with [Lucidchart](https://www.lucidchart.com). By doing this I had something to lean back on when programming so I had something to guide me. I was almost certain that it was not going to be made exactly as I made the chart, as I have never done one before, but I am happy with the result. It's pretty close to the end product as well so it definitely was a good thing to spend time on. If anything I would probably spend more time on that in the future for other projects, but due to some time-constraints on my end this time I couldn't spend more time on it. 
 
 ![Flowchart](documentation/readme-images/flowcharthangman.JPG)
 
 ## Features
 
 ### Existing Features
-- When the game is started the user is presented with a hangman graphic, most likely they will recognize it immediately and know the game even without the rules. But, to make it informative rules are printed aswell so the user know what to expect.
+- When the game is started the user is presented with a hangman graphic, most likely they will recognize it immediately and know the game even without the rules. But, to make it informative, rules are printed aswell so the user know what to expect.
     
     ![intro-rules](documentation/readme-images/intro-rules.JPG)
-- In the bottom of the page printed on starting the game the user is asked to enter their username.
+- On the bottom of the page the user is asked to enter their username.
 
     ![enter-username](documentation/readme-images/enter-username.JPG)
 - When username is accepted it is printed with a "Hello" message and asking the user to press "Enter" when ready to start the game.
@@ -111,20 +109,20 @@ To create the general idea of how the game logically should be running I made a 
 - After starting the game the below image is presented to the user, slightly different depending on the length of the word. The user can then see how many letters the word has, a graphic, underscores representing each letter in the hidden word, letters previously guessed, number of guesses remaining and then a prompt for the user to input a guess in the form of a letter.
 
     ![guess-letter](documentation/readme-images/guess-letter.JPG)
-- If the user make a wrong guess it prompts the same message but updated with the letter that was guessed and that the letter that was guesses is wrong, see image below where several guesses has been made.
+- If the user make a wrong guess it prompts the same message but updated with the letter that was guessed and that the letter that was guesses is wrong, see image below where several wrong guesses has been made.
 
     ![wrong-guess](documentation/readme-images/wrong-guess.JPG)
 - When the user make a correct guess the game still prompts the same message but of course updated with the new information, for example mentioning that the guess was correct.
 
     ![correct-guess](documentation/readme-images/correct-guess.JPG)
-- If the game is won the user is presented with that their last letter was correct, a congratulation message containing what the word was, the total score and the question if the user want to play again or not.
+- If the game is won the user is presented with that their last letter was correct, a congratulation message containing what the word was, the total score and the question if they want to view the current scoreboard. After this the user get asked if they want to continue playing or not.
 If the user continue playing and guess the next word aswell the score from that will be added to this total score shown in the image below. If "y" is chosen the game start over again from where the user has to click "Enter" to start the game.
 
     ![game-won](documentation/readme-images/game-won.JPG)
-- If all the guesses is used and the word is not guessed yet, the game is lost and awards no points. If they guessed another word previously correctly that score will still be kept. But if the word is not guessed then this will be printed to the game. The user still get the same question if they want to play again or not as well.
+- If all the guesses is used and the word is not guessed yet, the game is lost and awards no points. If they guessed another word previously, but correctly, that score will still be kept. But if the word is not guessed then this will be printed to the game. The user still get the same question if they want see the scoreboard and then if they want to play again or not.
 
     ![game-lost](documentation/readme-images/game-lost.JPG)
-- When the user doesn't want to play anymore they can instead chose to stop the game when they are asked if they want to continue or not. If they stop, the game will print a thank-you message, the final score, trying to update the scoreboard, if the score is not in the top 5 a sorry message is printed, if it is though then a congratulation message is printed instead, in the end the scoreboard will be printed either way to show the top 5 scores. See the two below images.
+- When the user doesn't want to play anymore they can instead chose to stop the game when they are asked if they want to continue or not. If they stop, the game will print a thank-you message, the final score, trying to update the scoreboard, if the score is not in the top 5 a sorry message is printed, if it is in the top 5 though then a congratulation message is printed instead, in the end the scoreboard will be printed either way to show the top 5 scores. See the two below images.
 
     ![not-top5](documentation/readme-images/not-top5.JPG)
 
@@ -156,12 +154,12 @@ If the user continue playing and guess the next word aswell the score from that 
 - When username is entered and accepted the user is presented with a message saying "press Enter to start the game...".
 
     ![start-game](documentation/readme-images/start-game.JPG)
-- When the user lost all their guesses or guessed the word correctly the game prompts the user with a choice if they want to play again or not.
+- When the user lost all their guesses or guessed the word correctly the game prompts the user with a choice if they want to view the current scoreboard or not, not matter if the user chose "y" or "n" the user is directly after this asked if they want to play again or not.
 
-    ![game-won](documentation/readme-images/game-won.JPG)
+    ![play-again](documentation/readme-images/play-again.JPG)
 
 #### As a first time visitor I want to get feedback along the way of the game
-- Every time the user enters some input that input is validated in the code, if not valid the user is presented with what they have to do. For example:
+- Every time the user enters some input, that input is validated in the code, if not valid the user is presented with what they have to do. For example:
 
     ![username-short](documentation/readme-images/username-short.JPG)
 - When guessing wrong or correct letter the user get printed messages showing what their input was and if it was wrong/correct.
@@ -208,13 +206,13 @@ If the user continue playing and guess the next word aswell the score from that 
 ### Automated Testing
 
 #### W3C Markup Validation Service
-In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those because i'm not allowed to change them anyway.
+In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those.
 
 #### W3C CSS Validation Service
-In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those because i'm not allowed to change them anyway.
+In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those.
 
 #### JSHint Javascript Validator
-In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those because i'm not allowed to change them anyway.
+In this project all i've been involved in doing is everything regarding Python, that mean i've been involved in the following: "creds.json", "run.py" "requirements.txt", "README.md" and "documentation". Everything else, HTML, CSS, JS etc. was given from the course i'm attending from [Code Institute](https://codeinstitute.net/se/). That means I won't be testing those.
 
 #### Google Lighthouse Performance Test
 The tests are all made in the same way:
@@ -232,17 +230,17 @@ The tests are all made in the same way:
 
 #### Python Validator
 To test the python code the [CI Python Linter](https://pep8ci.herokuapp.com/#) was used. To do it I copied all code from GitPod and printed it to the validator. I forgot to printscreen the first result but after handling all the things it mentioned the code is now all clear and validated.
-Most things that it raised as issues was to few spaces between functions, some whitespaces that had to be removed and code being to wide. I made the changes inside the validator first as it was updating live whenever I made a change so it was a really handy tool to use!
+Most things that it raised as issues was: to few spaces between functions, some whitespaces that had to be removed and code being to wide. I made the changes inside the validator first as it was updating live whenever I made a change so it was a really handy tool to use!
 
-    ![python-validator](documentation/readme-images/python-validator.JPG)
+![python-validator](documentation/readme-images/python-validator.JPG)
 
 #### Warnings
-No present warnings.
+No present warnings anywhere else.
 
 ### Manual Testing
 Tested according to below image and passing everything.
 
-![testingmanual](documentation/readme-images/manualtesting.JPG)
+![manual-testing](documentation/readme-images/manual-testing.JPG)
 
 #### Responsiveness
 I can't really test the responsiveness as "it is what it is", but I still put it into the Am I Responsive website just to get some images for it. However, the game works both on desktop and on mobiles.
@@ -257,7 +255,7 @@ I can't really test the responsiveness as "it is what it is", but I still put it
 2. I had issues with replacing underscores in the word_hidden variable in the beginning due to making it into a "string". 
     - After discussing this with my mentor he asked me to check out to make it into a "list" instead because those are easier to change. So that is what I did and it solved the issue so the variable updates correctly and present the user with the correct output.
 3. While implementing the scoreboard there was some issues with both checking the values in the spreadsheet correctly, updating them and then printing them in the correct order.
-    - I found much to use from this post [stackoverflow](https://stackoverflow.com/questions/8966538/syntax-behind-sortedkey-lambda) to aid me in how to sort values and so forth. After much testing I realized I was sorting the values incorrectly which inherently made functions related to it not work as expected. Now it only append the username and score if there is either less than 5 values in the spreadsheet or if the score is in the top 5. This also make sure that the spreadsheet won't be totally filled with data as not all finished games will be appended.
+    - I found much to use from this post [stackoverflow](https://stackoverflow.com/questions/8966538/syntax-behind-sortedkey-lambda) to aid me in how to sort values and so forth. After much testing I realized I was sorting the values incorrectly which inherently made functions related to it not work as expected. Now it only appends the username and score if there is either less than 5 values in the spreadsheet or if the score is in the top 5. This also make sure that the spreadsheet won't be totally filled with data as not all finished games will be appended.
 4. When first starting out, many of the functionalities was implemented in the same function, playgame, I quickly realized that won't work. But I wanted to have more functionality before starting to refactoring the code. When that process started there was a few "bugs" due to code not being called correctly or put in the wrong places. 
     - To fix this it was much "trial by error" but also much reading the code over and over again asking myself what I was really asking it to do so I could better understand why things wasn't working as expected. 
     - The terminal in Gitpod also provided with clues, of course, what was wrong so that was used alot.
@@ -275,32 +273,47 @@ I can't really test the responsiveness as "it is what it is", but I still put it
 - [Reddit](https://www.reddit.com/r/dataisbeautiful/comments/9b036p/the_number_of_wrong_guesses_needed_to_win_at/) was used to get information about how hard it is to guess different lengths of words.
 - [CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python-code.
 - [Google Sheets](https://www.google.com/sheets/about/) was used to create the spreadsheet used in the project.
-- [Google Sheet API](https://developers.google.com/sheets/api/guides/concepts) used to connect the project with the spreadsheet it can be accessed.
+- [Google Sheet API](https://developers.google.com/sheets/api/guides/concepts) used to connect the project with the spreadsheet so it can be accessed.
 - [Heroku](www.heroku.com) project is deployed to Heroku to make it into an app that is accessible through a browser.
 
 ## Deployment 
 
-### Deployment Github Pages
-1. Navigate to the [repository](https://github.com/BjornRodin/programmers-meetup-hub)
-2. Click on 'Settings' (found in the top/middle of the page).
-3. Click on 'Pages' in the menu on the left which will open 'GitHub Pages'.
-4. From the dropdown menu 'Source' under the header 'Build and Deployment', select 'Deploy from a Branch'.
-5. From the dropdown menu under 'Branch', select 'main' and the folder to the right to 'root'. 
-6. Click Save.
-7. The page should refresh and the deployment link should appear above 'Build and deployment'.
+### Deployment to Heroku
+1. Enter "requirements.txt" file within Gitpod.
+    - In the terminal, type 'pip3 freeze > requirements.txt'.
+        - After discussing it with my mentor I removed everything except 'google-auth==2.17.3' and 'gspread==5.8.0' because nothing else is used within my code.
+    - Add the changes with the command 'git add .'.
+    - Commit them with command 'git commit -m""'.
+    - Then push them to github with 'git push'.
+2. Assuming you have a Heroku account, otherwise you have to create one.
+3. In Heroku, click "Create a new app".
+    - Give the app a valid name (names are unique).
+    - Then choose your region.
+    - Lastly click "Create app"
+4. In the tabs, click "Settings".
+5. Scroll down to "Config Vars", click "Reveal Config Vars".
+    - In the field "KEY", type "CREDS".
+        - Return to your "creds.json" file in Gitpod, copy all the code.
+        - Paste the copied code in the field "VALUE" in Heroku.
+        - Then click "Add"
+    - Add another "Config Var".
+        - In the field "KEY", type "PORT".
+        - In the field "VALUE", type "8000".
+        - Then click "Add"
+6. Scroll down to "Buildpacks", click "Add buildpack".
+    - Choose "python" from the popup, click "Save changes".
+    - Click "Add buildpack" again.
+    - Choose "nodejs" from the popup, click "Save changes".
+    - Make sure that "python" is first in the list you will see. If it isn't, left-click and drag it so "python" come before "nodejs".
+7. Scroll up and from the menu-tab, click "Deploy".
+    - In "Deployment method", choose "GitHub" by clicking it.
+    - In "Connect to GitHub", click "Connect to GitHub".
+    - In "Connect to GitHub" there now is a searchbar, enter your repository name and then click "Search".
+    - Your repository should appear, click "Connect" next to it.
+8. Scroll down so you can see "Automatic deploys" and "Manual deploy".
+    - You can choose either option.
 
-### Cloning Repository
-1. Navigate to the [repository](https://github.com/BjornRodin/programmers-meetup-hub)
-2. Click on the 'Code' button on top of the repository and copy the HTTPS link. 
-3. Open Git Bash
-4. Type 'git clone' and then paste or type the link.
-5. Press Enter
-The project is now cloned.
-
-### Open Cloned Repository
-1. After cloning, type 'ls' and hit 'enter' to locate your repository on your computer.
-2. Locate the folder on your computer.
-3. Open the folder and double-click the 'index' file to open.
+You have now deployed your project to Heroku!
 
 ### Version Control
 - A repository was made on Github with Code Institutes Template.
@@ -311,18 +324,12 @@ The project is now cloned.
 
 ## Credits
 ### Media
-All pictures was downloaded from these three websites, the authors are also included.
-- [Pixabay](https://pixabay.com/)
-    - In this case I took the image "pileofdirt.png" from the the user [OpenClipart-Vectors](https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=576447).
-- [IMGBIN](https://imgbin.com/)
-    - In this case I took the image "molefigure.png" from the user [FireDoidaum](https://imgbin.com/user/FireDoidaum).
-- [Vecteezy](https://www.vecteezy.com/)
-    - In this case i took the image "background-field.png" from the user [annieart0](https://www.vecteezy.com/members/annieart0).
-
+No media used.
 
 ### Code
 - The code that was used in the project was mostly learnt via [Code Institute](https://codeinstitute.net/se/) and their Full Stack Software Development course.
 - [W3 School](https://www.w3schools.com/) was mostly used to solve issues or alternate ways to do the coding.
+- StackOverflow was used to search for information, for example I read this alot [stackoverflow](https://stackoverflow.com/questions/8966538/syntax-behind-sortedkey-lambda) to help me understand how to sort with lambda etc.
 
 ### Content
 - The content was designed and written by me.
