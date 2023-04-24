@@ -56,6 +56,7 @@ def intro():
         "6. Shorter words score better than longer ones\n"
         "   and more remaining guesses also improve the score.\n"
         "7. All words are nouns.\n"
+        "8. If you choose to 'play again' your score will be updated.\n"
         "\nLet's play!"
     )
     print(introduction_message)
@@ -384,26 +385,26 @@ def playgame():
                 guesses_remaining,
                 word_hidden
             )
-            if guess in letters_guessed:
-                letters_guessed_message = (
-                    f"\nThe letter '{guess.upper()}' has already been guessed."
-                    "\nTry another letter!\n"
-                )
-                print(letters_guessed_message)
-            elif guess in word:
-                letters_guessed.append(guess)
-                update_hidden_word(word, word_hidden, guess, word_length)
-                game_over = game_won(word_hidden, word, word_length)
-                if game_over:
-                    add_score(word_length, guesses_remaining)
-                    print(f"\nYour current total score is: {total_score}")
-                    break
-            elif guess not in word:
-                guesses_remaining -= 1
-                letters_guessed.append(guess)
-                guess_not_word(guesses_remaining, guess, word)
-        except ValueError as ve:
-            print(ve)
+        except ValueError as e:
+            print(e)
+        if guess in letters_guessed:
+            letters_guessed_message = (
+                f"\nThe letter '{guess.upper()}' has already been guessed."
+                "\nTry another letter!\n"
+            )
+            print(letters_guessed_message)
+        elif guess in word:
+            letters_guessed.append(guess)
+            update_hidden_word(word, word_hidden, guess, word_length)
+            game_over = game_won(word_hidden, word, word_length)
+            if game_over:
+                add_score(word_length, guesses_remaining)
+                print(f"\nYour current total score is: {total_score}")
+                break
+        else:
+            guesses_remaining -= 1
+            letters_guessed.append(guess)
+            guess_not_word(guesses_remaining, guess, word)
 
 
 def main_functions():
@@ -417,7 +418,20 @@ def main_functions():
     while play_again:
         input("press Enter to start the game...")
         playgame()
-        play_again = input("\nWould you like to play again? (y/n)\n").lower()
+        print("\nWould you like to check the current top 5 scoreboard?")
+        show_score = input("press 'y' or 'n'\n").lower()
+        show_score = show_score == "y"
+        if show_score:
+            worksheet = SHEET.worksheet('scores')
+            scores = worksheet.get_all_values()[1:]
+            scores.sort(key=lambda row: int(row[1]), reverse=False)
+            scores = scores[-5:]
+            print("\nHere is the scoreboard!\n")
+            print("Top 5 scores in Scoreboard:")
+            for i, row in enumerate(scores[::-1]):
+                print(f"{i+1}. {row[0]} - {row[1]} pts")
+        print("\nWould you like to play again? If 'n' game will end")
+        play_again = input("and scoreboard be updated. (y/n)\n").lower()
         play_again = play_again == "y"
         if not play_again:
             thanks_message = (
