@@ -108,13 +108,13 @@ def graphic_start():
     """
     Graphics for intro to make the user recognize the game quicker.
     """
-    return ("   |-----|  \n"
-            "   |     |  \n"
-            "   |        \n"
-            "   |        \n"
-            "   |        \n"
-            "  /|\\      \n"
-            " / | \\     \n")
+    return ("   |-----|   \n"
+            "   |     |   \n"
+            "   |     0   \n"
+            "   |    \\|/ \n"
+            "   |     |   \n"
+            "  /|\\   / \\\n"
+            " / | \\      \n")
 
 
 def graphic(guesses_remaining):
