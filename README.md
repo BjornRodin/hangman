@@ -22,7 +22,6 @@ This is a Hangman game where you can guess the hidden word and get scores depend
         - [Flowchart](#flowchart)
 - [Features](#features)
     - [Existing Features](#existing-features)
-
     - [Future Features](#future-features)
 - [Testing](#testing)
     - [User Stories Testing](#user-stories-testing)
@@ -100,24 +99,36 @@ To create the general idea of how the game logically should be running I made a 
 ## Features
 
 ### Existing Features
-- The game-info is presented as the page is loaded to give the user clear information that there is going to be information presented in that area when the game is running.This area is updated as the game is running to give the user real-time feedback.
+- When the game is started the user is presented with a hangman graphic, most likely they will recognize it immediately and know the game even without the rules. But, to make it informative rules are printed aswell so the user know what to expect.
     
-    ![Game-info](documentation/readme-images/game-info.JPG)
-- The mole-area is presented with 9 squares, all with a pile of dirt in them to clearly show the user where the game-area is and where to expect the mole to appear. Directly under the level of difficulty is shown for the user to chose as they please.
+    ![intro-rules](documentation/readme-images/intro-rules.JPG)
+- In the bottom of the page printed on starting the game the user is asked to enter their username.
 
-    ![Mole-area](documentation/readme-images/mole-area%26difficulty.JPG)
-- The control-area is from where the user can either click on a button to read the rules or start the game.
+    ![enter-username](documentation/readme-images/enter-username.JPG)
+- When username is accepted it is printed with a "Hello" message and asking the user to press "Enter" when ready to start the game.
 
-    ![control-area](documentation/readme-images/control-area.JPG)
+    ![start-game](documentation/readme-images/start-game.JPG)
+- After starting the game the below image is presented to the user, slightly different depending on the length of the word. The user can then see how many letters the word has, a graphic, underscores representing each letter in the hidden word, letters previously guessed, number of guesses remaining and then a prompt for the user to input a guess in the form of a letter.
+
+    ![guess-letter](documentation/readme-images/guess-letter.JPG)
+- If the user make a wrong guess it prompts the same message but updated with the letter that was guessed and that the letter that was guesses is wrong, see image below where several guesses has been made.
+
+    ![wrong-guess](documentation/readme-images/wrong-guess.JPG)
+- When the user make a correct guess the game still prompts the same message but of course updated with the new information, for example mentioning that the guess was correct.
+
+    ![correct-guess](documentation/readme-images/correct-guess.JPG)
+- If the game is won the user is presented with that their last letter was correct, a congratulation message containing what the word was, the total score and the question if the user want to play again or not.
+If the user continue playing and guess the next word aswell the score from that will be added to this total score shown in the image below. If "y" is chosen the game start over again from where the user has to click "Enter" to start the game.
+
+    ![game-won](documentation/readme-images/game-won.JPG)
+- If all the guesses is used and the word is not guessed yet, the game is lost and awards no points. If they guessed another word previously correctly that score will still be kept. But if the word is not guessed then this will be printed to the game. The user still get the same question if they want to play again or not as well.
+
+    ![game-lost](documentation/readme-images/game-lost.JPG)
+- When the user doesn't want to play anymore they can instead chose to stop the game when they are asked if they want to continue or not. If they stop, the game will print a thank-you message, the final score, trying to update the scoreboard, if the score is not in the top 5 a sorry message is printed, if it is though then a congratulation message is printed instead, in the end the scoreboard will be printed either way to show the top 5 scores. See the two below images.
+
+    ![not-top5](documentation/readme-images/not-top5.JPG)
     
-    ![Howtoplay](documentation/readme-images/howtoplay.JPG)
-- When the game has finished the user is presented with a popup-window with a message that changes depending on how well the user performed, their score clearly visible, a question if they want to play again and then the corresponding buttons to either play again or close the popup-window to change the difficulty settings.
-
-    ![Gameover](documentation/readme-images/gameover.JPG)
-
-- A 404.html is also added in case it's needed, the page has styling similar to the index.html and a return button to go back to the game instead of having to press the return button in the browser.
-
-    ![404html](documentation/readme-images/404html.JPG)
+    ![in-top5](documentation/readme-images/in-top5.JPG)
 
 
 ### Future Features
