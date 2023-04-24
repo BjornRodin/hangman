@@ -18,21 +18,18 @@ This is a Hangman game where you can guess the hidden word and get scores depend
         - [Returning Visitor Goals](#returning-visitor-goals)
         - [Administrators](#administrators)
     - [Design](#design)
-        - [Color Scheme](#color-scheme)
-        - [Fonts](#fonts)
-        - [Images](#images)
-        - [Wireframes](#wireframes)
+        - [Graphics](#graphics)
+        - [Flowchart](#flowchart)
 - [Features](#features)
     - [Existing Features](#existing-features)
 
     - [Future Features](#future-features)
 - [Testing](#testing)
     - [User Stories Testing](#user-stories-testing)
-       - [As a first time visitor I want to quickly understand where to find the rules](#as-a-first-time-visitor-i-want-to-quickly-understand-where-to-find-the-rules)
-       - [As a first time visitor I want to know where to start the game](#as-a-first-time-visitor-i-want-to-know-where-to-start-the-game)
-       - [As a first time visitor I want to see what my score is and how much time I have left](#as-a-first-time-visitor-i-want-to-see-what-my-score-is-and-how-much-time-i-have-left)
-       - [As a returning visitor I want to be able to chose difficulty and change it easily](#as-a-returning-visitor-i-want-to-be-able-to-chose-difficulty-and-change-it-easily)
-       - [As a returning visitor I want to have feedback on my performance so I can challenge myself](#as-a-returning-visitor-i-want-to-have-feedback-on-my-performance-so-i-can-challenge-myself)
+       - [As a first time visitor I want to quickly find and understand the rules](#as-a-first-time-visitor-i-want-to-quickly-find-and-understand-the-rules)
+       - [As a first time visitor I want to know how to start the game](#as-a-first-time-visitor-i-want-to-know-how-to-start-the-game)
+       - [As a first time visitor I want to get feedback along the way of the game](#as-a-first-time-visitor-i-want-to-get-feedback-along-the-way-of-the-game)
+       - [As a returning visitor I want to see the top scores so I can try to beat it](#as-a-returning-visitor-i-want-to-see-the-top-scores-so-i-can-try-to-beat-it)
        - [As a returning visitor I want to be able to quickly restart the game when it's over](#as-a-returning-visitor-i-want-to-be-able-to-quickly-restart-the-game-when-its-over)
        - [As a returning visitor I want to have a calm background and game with pleasing design](#as-a-returning-visitor-i-want-to-have-a-calm-background-and-game-with-pleasing-design)
        - [As a administrator I want to provide the users with a game that is easy to navigate](#as-a-administrator-i-want-to-provide-the-users-with-a-game-that-is-easy-to-navigate)
@@ -90,27 +87,15 @@ As a administrator I want to:
 
 ### Design
 
-#### Color Scheme
-The colors was extracted from the "background-field.jpg" image.
-- #D9CE3B ![#D9CE3B](documentation/readme-images/color%20D9CE3B.JPG) was used as background color for the mole-area, level-difficulty, error-page and for game-info on smaller screen-sizes. It was also used as a subtle shadow for the buttons how-to-play and play-game.
-- #F2D49B ![#F2D49B](documentation/readme-images/color%20%23F2D49B.JPG) was used as background color for buttons across the website.
+#### Graphics
+The graphics of the hangman was designed from how I used to play the game as a kid when doing it on a whiteboard at school. By using "/", "\", "0" & "|" I could replicate a simple, but useful, graphic that updates over time in the game.
 
-#### Fonts
-The fonts that are used are from [Google Fonts](https://fonts.google.com/). The header has "Delicious Handrawn" to provide a playfullness to the game that fits the nature of the game itself. The rest of the site use "Alkatra" to keep the playfullness but still being easy to read for the user. Both have Sans-Serife as a fallback font.
+![Hangman-graphics](documentation/readme-images/hangman-graphic.JPG)
 
-#### Images
-The images used are taken from the following sites:
-- [Pixabay](https://pixabay.com/) which is a site that provides images that are free to use.
-    - In this case I took the image "pileofdirt.png" from the the user [OpenClipart-Vectors](https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=576447).
-- [IMGBIN](https://imgbin.com/) which also is a site that provides images that are free to use.
-    - In this case I took the image "molefigure.png" from the user [FireDoidaum](https://imgbin.com/user/FireDoidaum).
-- [Vecteezy](https://www.vecteezy.com/) which also is a site that provides images that are free to use.
-    - In this case i took the image "background-field.png" from the user [annieart0](https://www.vecteezy.com/members/annieart0).
+#### Flowchart
+To create the general idea of how the game logically should be running I made a simple flowchart with [Lucidchart](https://www.lucidchart.com). By doing this I had something to lean back on when programming to I had something to guide me. I was almost certain that it was not going to be made exactly as I made the chart, as I have never done one before, but I am happy with the result. It's pretty close to the end product as well so it definitely was a good thing to spend time on. If anything I would probably spend more time on that in the future for other projects, but due to some time-constraints on my end this time I couldn't spend more time on it. 
 
-#### Wireframes
-To create the general idea of the site [Balsamiq](https://balsamiq.com/) was used to create the wireframes. The end-product is pretty close to the initial idea, the biggest change was that "How to play" was moved to where the "Restart" button was planned (as we don't really need a restart-button thanks to the coding) and because some popups was implemented instead. In the "gameOver" function a popup was made where a "Play again" button is added, so there still is a type of restart-button.
-
-![Wireframes](documentation/readme-images/wireframe.JPG)
+![Flowchart](documentation/readme-images/flowcharthangman.JPG)
 
 ## Features
 
